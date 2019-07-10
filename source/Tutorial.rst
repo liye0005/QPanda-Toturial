@@ -178,7 +178,7 @@ VS下使用QPanda2的CMakeList的写法为
  linux、MacOS及MinGW下使用QPanda2
  ************************************************
 
-linux、MacOS和MinGW下使用QPanda2的方式是相同的，其CmakeList的写法为：
+linux、MacOS和MinGW下使用QPanda2的方式是相同的，其CmakeList.txt的写法为：
 
     .. code-block:: c
 
@@ -210,7 +210,7 @@ linux、MacOS和MinGW下使用QPanda2的方式是相同的，其CmakeList的写�
         add_executable(${PROJECT_NAME} test.cpp)
         target_link_libraries(${PROJECT_NAME} ${QPANDA_LIBRARIES})
 
-.. note:: ``test.cpp`` 为使用QPanda2的一个示例。有兴趣的可以试着将其合并在一起形成一个跨平台的CMakeList。
+.. note:: ``test.cpp`` 为使用QPanda2的一个示例。有兴趣的可以试着将其合并在一起形成一个跨平台的CMakeList.txt。
 
 编译方式与编译QPanda库的方式基本类似，在这里就不多做赘述。
 

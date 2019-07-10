@@ -112,7 +112,8 @@ setDagger的作用是根据输入参数更新当前量子逻辑门的dagger标�
 
      .. code-block:: c
           
-          QGate h_dagger = H(qubit).setDagger(true);
+          auto gate = H(qubit);
+          gate.setDagger(true);
 
 .. note:: setDagger有一个布尔类型参数，用来设置当前逻辑门是否需要转置共轭操作。
 
@@ -129,7 +130,8 @@ setControl的作用是给当前的量子逻辑门添加控制比特，例如：
 
      .. code-block:: c
           
-          QGate rx_control = RX(qubit,PI).setControl(qvec);
+          auto gate = RX(qubit,PI)
+          gate.setControl(qvec);
 
 
 
