@@ -25,15 +25,14 @@ QPanda 2由本源量子软件团队开发和维护。自2018年起，QPanda 2依
     ChangeLog
    
 .. toctree::
+    :caption: 基础介绍
     :maxdepth: 2
 
     GettingStarted
     Tutorial
 
-深入学习
------------
-
 .. toctree::
+    :caption: 深入学习
     :maxdepth: 2
 
     QGate
@@ -45,10 +44,8 @@ QPanda 2由本源量子软件团队开发和维护。自2018年起，QPanda 2依
     Measure
     PMeasure
 
-工具组件
------------
-
 .. toctree::
+    :caption: 工具组件
     :maxdepth: 2
 
     QGateValidity
@@ -58,19 +55,16 @@ QPanda 2由本源量子软件团队开发和维护。自2018年起，QPanda 2依
     QProgDataParse
     QRunesToQProg
 
-量子程序转换
------------
 .. toctree::
+    :caption:量子程序转换
     :maxdepth: 2
     
     QProgToQASM
     QProgToQRunes
     QProgToQuil
 
-算法组件
------------
-
 .. toctree::
+    :caption: 算法组件
     :maxdepth: 2
 
     PauliOperator
