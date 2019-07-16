@@ -123,8 +123,8 @@ dagger的作用是复制一份当前的量子逻辑门，并更新复制的量�
           
           QGate rx_dagger = RX(qubit,PI).dagger();
 
-除了转置共轭操作，您也可以为量子逻辑门添加控制比特，添加控制比特后，当前量子逻辑门是否执行需要根据控制比特的量子态决定，而控制比特有可能处于叠加态，
-所以当前量子逻辑门是否执行，不好说。QGate类型有两个成员函数帮助您添加控制比特：control、setControl。
+除了转置共轭操作，您也可以为量子逻辑门添加控制比特，添加控制比特后，当前量子逻辑门是否执行需要根据控制比特的量子态决定。如果控制比特的量子态为|1>态时，当前量子逻辑门可被执行，
+如果控制比特的量子态为|0>时，当前量子逻辑门不会被执行。QGate类型有两个成员函数帮助您添加控制比特：control、setControl。
 
 setControl的作用是给当前的量子逻辑门添加控制比特，例如：
 
@@ -144,23 +144,16 @@ control的作用是复制当前的量子逻辑门，并给复制的量子逻辑�
 
 .. note:: setControl、control都需要接收一个参数，参数类型为QVec，QVec是qubit的vector。
 
-control的作用是复制当前的量子逻辑门，并给复制的量子逻辑门添加控制比特，例如：
-
-     .. code-block:: c
-          
-          QGate rx_control = RX(qubit,PI).control(qvec);
-
-.. note:: setControl、control都需要接收一个参数，参数类型为QVec，QVec是qubit的vector。
-
 实例
 ----------------
 
-以下实例主要是向您展现QGate类型接口的使用方式.
+以下实例主要是向您展现QGate类型接口的使用方式，我们先使用init接口初始化一个量子虚拟机，向量子虚拟机申请3个量子比特，并把q[0],q[1]存放在一个量子比特容器中。
+接着，调用CreateEmptyQProg构建一个量子程序prog，然后我们可以通过 << 操作符把量子逻辑门插入到prog中。最后调用qprobRunTupleList概率测量运行接口，就可以得到计算结果了。
 
     .. code-block:: c
 
         #include "QPanda.h"
-        using namespace QPanda
+        using namespace QPanda；
 
         int main(void)
         {

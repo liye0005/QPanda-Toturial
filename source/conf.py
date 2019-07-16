@@ -109,7 +109,7 @@ html_static_path = ['.static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'QPanda2introductiondoc'
+htmlhelp_basename = 'QPanda-2 Introduction'
 
 
 # -- Options for LaTeX output ------------------------------------------------
