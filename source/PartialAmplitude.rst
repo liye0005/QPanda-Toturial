@@ -192,7 +192,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
 
             8.37758e-05
 
-    - ``PMeasureSubSet(QProg &, std::vector<std::string>)`` ,输入的第一个参数表示待运行的量子线路，第二个参数表示需要测量的量子态二进制下标形式构成的子集，使用示例如下：
+    - ``PMeasureSubSet(QProg &, std::vector<std::string>)`` ,输入的第一个参数表示待运行的量子程序，第二个参数表示需要测量的量子态二进制下标形式构成的子集，使用示例如下：
 
         .. code-block:: c
 
