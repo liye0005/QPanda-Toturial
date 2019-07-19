@@ -5,7 +5,7 @@
 ----
 
 目前用经典计算机模拟量子虚拟机的主流解决方案有全振幅与单振幅两种。除此之外，还有部分振幅量子虚拟机，该方案能在更低的硬件条件下，实现更高的模拟效率。
-部分振幅算法的基本思想是将大比特的量子计算线路图拆分成若干个小比特线路图，具体数量视线路扶持情况而定。
+部分振幅算法的基本思想是将大比特的量子计算线路图拆分成若干个小比特线路图，具体数量视线路复杂情况而定。
 
 使用介绍
 >>>>>>>>>>>>>>>>
@@ -89,7 +89,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
             cout << res["0000000000"] << endl;
             cout << res["0000000001"] << endl;
 
-上述程序的计算结果如下
+上述程序使用的接口为getQStat()，即计算所有量子态的复振幅值，计算结果如下
 
     .. code-block:: c
 
@@ -98,7 +98,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
         ...
 
 若使用其他接口：
-    - ``PMeasure(std::string)`` ,使用示例
+    - ``PMeasure(std::string)`` ,输入的参数表示获取测量所有比特构成量子态的概率的结果集的前多少项，比如如下例子，我们获取所有量子态的概率分布结果的前6项，程序运行如下：
 
         .. code-block:: c
 
@@ -108,7 +108,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
                 std::cout << val.first << " : " << val.second << std::endl;
             }
 
-        结果输出如下：
+        结果输出如下，每个结果的序号表示量子态的下标，后面的值表示概率：
 
         .. code-block:: c
 
@@ -119,7 +119,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
             4 : 0.000488281
             5 : 0.000488281
 
-    - ``PMeasure(QVec,std::string)`` ,使用示例
+    - ``PMeasure(QVec,std::string)`` ,输入的第一个参数表示选取哪几个量子比特构成的量子态的概率，第二个参数表示选取结果的前多少项，使用示例如下：
 
         .. code-block:: c
 
@@ -131,7 +131,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
                 std::cout << val.first << " : " << val.second << std::endl;
             }
 
-        结果输出如下：
+        结果输出如下，每个结果的序号表示量子态的下标，后面的值表示概率：
 
         .. code-block:: c
 
@@ -142,7 +142,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
             4 : 0.000976562
             5 : 0.000976562
 
-    - ``getProbDict(qvec,std::string)`` ,使用示例
+    - ``getProbDict(qvec,std::string)`` ,输入的第一个参数表示选取哪几个量子比特构成的量子态的概率，第二个参数表示选取结果的前多少项，使用示例如下：
 
         .. code-block:: c
 
@@ -155,7 +155,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
                 std::cout << val.first << " : " << val.second << endl;
             }
 
-        结果输出如下：
+        结果输出如下，每个结果的前半部分表示量子态的二进制形式，后面的值表示概率：
 
         .. code-block:: c
 
@@ -166,29 +166,49 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
             0000000100 : 0.000488281
             0000000101 : 0.000488281
 
-    - ``PMeasure_bin_index(std::string)`` ,使用示例
+    - ``PMeasure_bin_index(std::string)`` ,输入的参数表示指定需要测量的量子态二进制形式，使用示例如下：
 
         .. code-block:: c
 
-            auto res = PMeasure_bin_index("0000000001");
+            auto res = machine->PMeasure_bin_index("0000000001");
             std::cout << res << std::endl;
 
-        通过二进制形式下标测量指定振幅，结果输出如下：
+        结果输出如下，表示目标量子态的概率值：
 
         .. code-block:: c
 
             8.37758e-05
 
-    - ``PMeasure_dec_index(std::string)`` ,使用示例
+    - ``PMeasure_dec_index(std::string)`` ,输入的参数表示指定需要测量的量子态十进制下标形式，使用示例
 
         .. code-block:: c
 
-            auto res = PMeasure_bin_index("1");
+            auto res = machine->PMeasure_bin_index("1");
             std::cout << res << std::endl;
 
-        通过十进制形式下标测量指定振幅，结果输出如下：
+        结果输出如下，表示目标量子态的概率值：
 
         .. code-block:: c
 
             8.37758e-05
+
+    - ``PMeasureSubSet(QProg &, std::vector<std::string>)`` ,输入的第一个参数表示待运行的量子线路，第二个参数表示需要测量的量子态二进制下标形式构成的子集，使用示例如下：
+
+        .. code-block:: c
+
+            std::vector<std::string> set = { "0000000000","0000000001","0000000100" };
+            auto res = machine->PMeasureSubSet(prog, set);
+
+            for (auto val : res)
+            {
+                std::cout << val.first << " : " << val.second << endl;
+            }
+
+        结果输出如下：
+
+        .. code-block:: c
+
+            0000000000 : 8.37758e-05
+            0000000001 : 8.37758e-05
+            0000000100 : 0.000488281
 
