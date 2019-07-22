@@ -65,7 +65,6 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
 
             auto prog = QProg();
             auto qlist = machine->allocateQubits(10);
-            auto clist = machine->allocateCBits(10);
 
             auto prog = QProg();
             for_each(qlist.begin(), qlist.end(), [&](Qubit *val) { prog << H(val); });
