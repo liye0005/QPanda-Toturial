@@ -22,7 +22,6 @@ QPanda2提供了三种获得PMeasure结果的方式，其中有 ``probRunList`` 
     .. code-block:: c
 
         auto qubits = qvm->allocateQubits(4);
-        auto cbits = qvm->allocateCBits(4);
 
         QProg prog;
         prog   << H(qubits[0])
@@ -49,7 +48,6 @@ QPanda2提供了三种获得PMeasure结果的方式，其中有 ``probRunList`` 
         {
             auto qvm = initQuantumMachine();
             auto qubits = qvm->allocateQubits(2);
-            auto cbits = qvm->allocateCBits(2);
 
             QProg prog;
             prog << H(qubits[0])
