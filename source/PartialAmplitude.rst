@@ -31,7 +31,6 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
 
         auto prog = QProg();
         auto qlist = machine->allocateQubits(10);
-        auto clist = machine->allocateCBits(10);
 
         for_each(qlist.begin(), qlist.end(), [&](Qubit *val) { prog << H(val); });
         prog << CZ(qlist[1], qlist[5]) << CZ(qlist[3], qlist[5]) << CZ(qlist[2], qlist[4]);
@@ -87,7 +86,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
             cout << res["0000000000"] << endl;
             cout << res["0000000001"] << endl;
 
-上述程序使用的接口为getQStat()，即计算所有量子态的复振幅值，计算结果如下
+上述程序使用的接口为getQStat()，即获取量子态所有分量的振幅，计算结果如下
 
     .. code-block:: c
 
