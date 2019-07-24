@@ -56,7 +56,8 @@ QPanda2中设计了 ``SingleAmplitudeQVM`` 类用于运行单振幅模拟量子�
 
     .. code-block:: c
 
-        #include "QPanda.h"
+        #include "Core/QPanda.h"
+        #include "Core/QuantumMachine/SingleAmplitudeQVM.h"
         USING_QPANDA
 
         int main(void)
