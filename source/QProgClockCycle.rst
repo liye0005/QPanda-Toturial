@@ -33,7 +33,7 @@
 接口介绍
 --------------
 
-``QProgClockCycle`` 类是QPanda 2提供的一个将量子程序转换为Quil指令集的工具类，我们先用QPanda 2构建一个量子程序：
+``QProgClockCycle`` 类是QPanda 2提供的一个统计量子程序时钟周期的接口，我们先用QPanda 2构建一个量子程序：
 
     .. code-block:: c
           
@@ -74,9 +74,7 @@
 
             auto time = getQProgClockCycle(qvm, prog);
             std::cout << "clockCycle : " << time << std::endl;
-
-            qvm->finalize();
-            delete qvm;
+            destroyQuantumMachine(qvm);
 
             return 0;
         }
