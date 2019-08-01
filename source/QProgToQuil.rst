@@ -62,7 +62,7 @@
 
     .. code-block:: c
 
-        #include <QPanda.h>
+        #include "Core/QPanda.h"
         USING_QPANDA
 
 
@@ -80,8 +80,7 @@
 
             std::string instructions = transformQProgToQuil(prog, qvm);
             std::cout << instructions << std::endl;
-            qvm->finalize();
-            delete qvm;
+            destroyQuantumMachine(qvm);
             return 0;
         }
 

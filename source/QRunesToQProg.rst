@@ -39,7 +39,7 @@ QPanda 2提供了QRunes文件转换工具接口 ``transformQRunesToQProg(std::st
 
     .. code-block:: c
 
-        #include "QPanda.h"
+        #include "Core/QPanda.h"
         USING_QPANDA
 
         const string sQRunesPath("D:\\QRunes");
@@ -50,8 +50,7 @@ QPanda 2提供了QRunes文件转换工具接口 ``transformQRunesToQProg(std::st
             auto prog = CreateEmptyQProg();
             transformQRunesToQProg("D:\\QRunes", prog,qvm);
 
-            qvm->finalize();
-            delete qvm;
+            destroyQuantumMachine(qvm);
             return 0;
         }
 
@@ -64,7 +63,7 @@ QPanda 2提供了QRunes文件转换工具接口 ``transformQRunesToQProg(std::st
 
  - 然后调用 ``transformQRunesToQProg(sQRunesPath, prog，qvm)`` 转化
 
- - 最后用 ``finalize()`` 结束，并释放系统资源
+ - 最后用 ``destroyQuantumMachine`` 结束，并释放系统资源
 
    .. tip:: 我们可以调用量子程序转化QRunes函数接口transformQProgToQRunes(QProg &)来验证是否转化成功
     

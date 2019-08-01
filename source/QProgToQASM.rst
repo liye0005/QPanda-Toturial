@@ -54,7 +54,7 @@ QPanda2提供了QASM转换工具接口 ``std::string transformQProgToQASM(QProg 
 
     .. code-block:: c
 
-        #include "QPanda.h"
+        #include "Core/QPanda.h"
         USING_QPANDA
 
         int main(void)
@@ -84,8 +84,7 @@ QPanda2提供了QASM转换工具接口 ``std::string transformQProgToQASM(QProg 
 
             cout << transformQProgToQASM(prog,qvm);
 
-            qvm->finalize();
-            delete qvm;
+            destroyQuantumMachine(qvm);
             return 0;
         }
 
@@ -97,7 +96,7 @@ QPanda2提供了QASM转换工具接口 ``std::string transformQProgToQASM(QProg 
 
  - 然后调用 ``CreateEmptyQProg()`` 构建量子程序
 
- - 最后调用接口 ``transformQProgToQASM`` 输出QASM指令集并用 ``finalize()`` 释放系统资源
+ - 最后调用接口 ``transformQProgToQASM`` 输出QASM指令集并用 ``destroyQuantumMachine`` 释放系统资源
 
 
 运行结果如下：

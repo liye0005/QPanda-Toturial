@@ -62,7 +62,7 @@ QPanda2提供了QRunes转换工具接口 ``std::string transformQProgToQRunes(QP
 
     .. code-block:: c
 
-        #include "QPanda.h"
+        #include "Core/QPanda.h"
         USING_QPANDA
 
         int main(void)
@@ -92,8 +92,7 @@ QPanda2提供了QRunes转换工具接口 ``std::string transformQProgToQRunes(QP
 
             cout << transformQProgToQRunes(prog,qvm);
 
-            qvm->finalize();
-            delete qvm;
+            destroyQuantumMachine(qvm);
             return 0;
         }
 
@@ -107,7 +106,7 @@ QPanda2提供了QRunes转换工具接口 ``std::string transformQProgToQRunes(QP
 
  - 然后调用 ``CreateEmptyQProg()`` 构建量子程序
 
- - 最后调用接口 ``transformQProgToQRunes`` 输出QRunes指令集并用 ``finalize()`` 释放系统资源
+ - 最后调用接口 ``transformQProgToQRunes`` 输出QRunes指令集并用 ``destroyQuantumMachine`` 释放系统资源
 
 运行结果如下：
 
