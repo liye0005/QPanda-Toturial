@@ -33,7 +33,7 @@
 接口介绍
 --------------
 
-``QProgClockCycle`` 类是QPanda 2提供的一个统计量子程序时钟周期的接口，我们先用QPanda 2构建一个量子程序：
+``QProgClockCycle`` 类是QPanda 2提供的一个统计量子程序时钟周期的工具类，我们先用QPanda 2构建一个量子程序：
 
     .. code-block:: c
           
