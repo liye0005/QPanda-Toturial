@@ -1,6 +1,17 @@
 Change Log
 ================
-1.3.3 - 2017-06-20
+1.3.4 - 2019-08-05
+1、接口 QProgToBinary名改变为qProgToBinary
+2、接口getQProgClockCycle的参数顺序改变(QuantumMachine *qm, QProg &prog)->(QProg &prog, QuantumMachine *qm)
+3、QPanda和pyqpanda 添加apply_Gate 接口；
+4、更新DJ算法和Grove算法；
+5、更新量子程序遍历框架；
+6、添加部分振幅取任意振幅子集的接口
+7、pyqpanda 添加设置setConfig的接口
+8、pyqpanda QVec添加append 、pop接口
+9、pyqpanda 修改Measure_all接口名为measure_all
+10、pyqpanda 修改Measure接口名为measure
+1.3.3 - 2019-06-20
 单振幅和部分振幅虚拟机支持更多的量子比特；QIf和QWhile接口重构；更新DJ算法；QStat精度兼容double和float类型
 1.3.2 - 2019-05-27
 添加量子线路深拷贝功能，修改部分程序bug

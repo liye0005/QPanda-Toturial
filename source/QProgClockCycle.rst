@@ -54,7 +54,7 @@
 
     .. code-block:: c
           
-        auto time = getQProgClockCycle(qvm, prog);   
+        auto time = getQProgClockCycle(prog,qvm);   
 
 实例
 --------------
@@ -72,7 +72,7 @@
             prog << H(qubits[0]) << CNOT(qubits[0], qubits[1])
                     << iSWAP(qubits[1], qubits[2]) << RX(qubits[3], PI/4);
 
-            auto time = getQProgClockCycle(qvm, prog);
+            auto time = getQProgClockCycle(prog, qvm);
             std::cout << "clockCycle : " << time << std::endl;
             destroyQuantumMachine(qvm);
 
