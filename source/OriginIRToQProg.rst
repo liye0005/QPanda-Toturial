@@ -95,5 +95,5 @@ QPanda 2提供了OriginIR文件转换工具接口 ``transformOriginIRToQProg(std
         CNOT q[2],q[1]
         ENDQIF
 
-   .. note:: 对于暂不支持的操作类型，可能会在OriginIR转化成量子程序的过程中发生错误。
+   .. 注意:: 对于暂不支持的操作类型，可能会在OriginIR转化成量子程序的过程中发生错误。
 
