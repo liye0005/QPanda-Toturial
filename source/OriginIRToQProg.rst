@@ -91,7 +91,7 @@ QPanda 2提供了OriginIR文件转换工具接口 ``transformOriginIRToQProg(std
         ELSE
         H q[2]
         RZ q[2],(2.356194)
-        CU q[2],q[3],(3.141593,4.712389,-1.570796,1.570796)
+        CU q[2],q[3],(3.141593,4.712389,1.570796,-1.570796)
         CNOT q[2],q[1]
         ENDQIF
 
