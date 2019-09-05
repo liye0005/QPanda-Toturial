@@ -51,7 +51,6 @@ QPanda 2是由本源量子开发的开源量子计算框架，它可以用于构
     QProgStored
     QProgDataParse
     QRunesToQProg
-    QCircuitInfo
 
 .. toctree::
     :caption:量子程序转换
