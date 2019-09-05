@@ -200,8 +200,6 @@ OPE算法
     MEASURE q[1],c[1]
 
 
-关于OriginIR更多详细信息的介绍、使用与体验请参考 `本源量子计算云平台官网`_
-
 QPanda2提供了OriginIR转换工具接口 ``std::string transformQProgToOriginIR(QProg &, QuantumMachine*)`` 该接口使用非常简单，具体可参考下方示例程序。
 
 实例
