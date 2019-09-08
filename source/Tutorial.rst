@@ -161,6 +161,13 @@ Linux 和 MacOS
 
 示例程序的编译方式与编译QPanda库的方式基本类似，在这里就不多做赘述。我们在QPanda-2的github库中添加了 `Template <https://github.com/OriginQ/QPanda-2/tree/master/Template>`_ 文件夹，用于展示各个平台的使用案例。
 
+用户也可以使用g++编译test.cpp，编译命令如下所示：
+
+    .. code-block:: c
+
+        g++ -std=c++14  test.cpp  -I{安装目录}/include -I{安装目录}/include/ThirdParty/ -L{安装目录}/lib/  -lQPanda2 -lTinyXML -fopenmp -o test
+
+
 编译之后的可执行文件会生成在build下的bin文件夹中，进入到bin目录下就可以执行自己编写的量子程序了。
 
 
