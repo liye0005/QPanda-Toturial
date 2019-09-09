@@ -290,7 +290,7 @@ linux、MacOS使用QPanda2的方式是相同的，其CmakeList.txt的写法为�
 
     .. code-block:: c
 
-        #include "QPanda.h"
+        #include "Core/QPanda.h"
         #include <stdio.h>
         using namespace QPanda;
         int main()

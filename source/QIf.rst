@@ -53,7 +53,7 @@ C语言风格
 
     .. code-block:: c
 
-        #include "QPanda.h"
+        #include "Core/QPanda.h"
         USING_QPANDA
 
         int main(void)

@@ -41,7 +41,7 @@ QPanda2提供了三种获得PMeasure结果的方式，其中有 ``probRunList`` 
 
     .. code-block:: c
 
-        #include <QPanda.h>
+        #include "Core/QPanda.h"
         USING_QPANDA
 
         int main(void)

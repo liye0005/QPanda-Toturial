@@ -187,7 +187,7 @@
 
 .. code-block:: cpp
 
-    #include "QPanda.h"
+    #include "Core/QPanda.h"
     #include "Variational/var.h"
 
     int main()
