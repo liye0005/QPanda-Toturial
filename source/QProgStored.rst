@@ -56,8 +56,8 @@ QPanda2还提供了封装好的接口来实现量子程序序列化，上述的�
 
     .. code-block:: c
     
-        #include <QPanda.h>
-        #include <Core/Utilities/base64.hpp>
+        #include "Core/QPanda.h"
+        #include "Core/Utilities/base64.hpp"
         USING_QPANDA
 
         int main(void)
