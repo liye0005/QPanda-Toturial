@@ -99,6 +99,17 @@ CMake+MinGW的编译命令如下：
 Linux 和 MacOS
 >>>>>>>>>>>>>>>
 
+环境要求
+*********
+- gcc/clang/（其它C++编译器）：支持C++14标准以及OpenMP
+- CMake 3.0 以上
+- pkg-config工具(Linux,必须。Ubuntu下使用 sudo apt-get install pkg-config 安装,CentOS下需要下载源码编译)
+- UUID库（Linux，必须。Ubuntu下使用 sudo apt-get install uuid-dev 安装，CentOS下使用yum install libuuid-devel安装）
+- Python 3.5 以上 (pyQPanda，可选)
+- CURL (量子云连接功能，可选)
+- MPI (在集群上运行量子虚拟机，可选)
+- CUDA 9 以上 (在GPU上运行量子虚拟机，可选)
+
 编译
 *******
 
