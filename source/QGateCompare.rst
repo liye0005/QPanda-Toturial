@@ -42,7 +42,7 @@
 
     .. code-block:: c
           
-        size_t num = size_t num = getUnSupportQGateNumber(prog, gates);
+        size_t num = size_t num = getUnsupportQGateNum(prog, gates);
 
 .. note:: 统计 ``QCircuit`` 、 ``QWhileProg`` 、``QIfProg`` 、 ``QGate`` 中不支持的量子逻辑门的个数和 ``QProg`` 类似。
 
@@ -51,7 +51,7 @@
 
     .. code-block:: c
     
-        #include <QPanda.h>
+        #include "Core/QPanda.h"
         USING_QPANDA
 
         int main(void)
@@ -72,7 +72,7 @@
             std::vector<std::string> double_gates = {"CNOT"}; // 支持的双量子逻辑门类型
             std::vector<std::vector<std::string>> gates = {single_gates, double_gates};
 
-            size_t num = getUnSupportQGateNumber(prog, gates);
+            size_t num = getUnsupportQGateNum(prog, gates);
             std::cout << "unsupport QGate num: " << num << std::endl;
             finalize();
 
@@ -85,4 +85,10 @@
 
         unsupport QGate num: 4
 
+
+.. warning:: 新版本接口名将有调整，旧版本接口将于下版本去除，请读者知悉。\
+
+            ``getUnsupportQGateNum()`` 替换 ``getUnSupportQGateNumber()``
+
+    
     
