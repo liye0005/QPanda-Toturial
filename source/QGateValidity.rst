@@ -47,6 +47,12 @@
         single_gate.push_back("S");
         auto single_gate_type = SingleGateTypeValidator::GateType(single_gate, valid_single_gate); // 得到有效的量子逻辑门组合，和有效组合的类型
 
+使用QPanda2封装的接口：
+
+    .. code-block:: c
+          
+        auto single_gate_type = validateSingleQGateType(double_gate， valid_double_gate);
+
 ``DoubleGateTypeValidator`` 是验证双量子逻辑门有效性的工具类，使用方式如下：
 
     .. code-block:: c
@@ -58,12 +64,18 @@
         double_gate.push_back("CZ");
         auto double_gate_type = DoubleGateTypeValidator::GateType(double_gate, valid_double_gate); // 得到有效的量子逻辑门组合，和有效组合的类型
 
+使用QPanda2封装的接口：
+
+    .. code-block:: c
+          
+        auto double_gate_type = validateDoubleQGateType(double_gate， valid_double_gate);
+
 实例
 ------------
 
     .. code-block:: c
     
-        #include <QPanda.h>
+        #include "Core/QPanda.h"
         USING_QPANDA
 
         int main(void)
@@ -76,7 +88,7 @@
             single_gate.push_back("S");
 
             // 得到有效的量子逻辑门组合，和有效组合的类型
-            auto single_gate_type = SingleGateTypeValidator::GateType(single_gate, valid_single_gate);
+            auto single_gate_type = validateSingleQGateType(single_gate, valid_single_gate);
 
             std::cout << "SingleGateTransferType: " << single_gate_type << std::endl;
             for (auto &val : valid_single_gate)
@@ -93,7 +105,7 @@
             double_gate.push_back("CZ");
 
             // 得到有效的量子逻辑门组合，和有效组合的类型
-            auto double_gate_type = DoubleGateTypeValidator::GateType(double_gate, valid_double_gate);
+            auto double_gate_type = validateDoubleQGateType(double_gate, valid_double_gate);
 
             std::cout << "doubleGateTransferType: " << double_gate_type << std::endl;
             for (auto &val : valid_double_gate)
@@ -114,3 +126,7 @@
         T H 
         doubleGateTransferType: 0
         CNOT 
+
+
+
+
