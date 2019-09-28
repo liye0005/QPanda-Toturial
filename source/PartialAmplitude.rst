@@ -61,7 +61,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
 
     .. code-block:: c
 
-        #include "QPanda.h"
+        #include "Core/QPanda.h"
         USING_QPANDA
 
         int main(void)
@@ -69,7 +69,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
             auto machine = new PartialAmplitudeQVM();
             machine->init();
 
-            auto qlist = machine->allocateQubits(10);
+            auto qlist = machine->qAlloc(10);
 
             auto prog = QProg();
             for_each(qlist.begin(), qlist.end(), [&](Qubit *val) { prog << H(val); });
@@ -89,11 +89,11 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
                  << CR(qlist[2], qlist[7], PI / 2);
                 
             machine->run(prog);
-            auto res = machine->getQStat();
+            auto res = machine->getQState();
             cout << res["0000000000"] << endl;
             cout << res["0000000001"] << endl;
 
-上述程序使用的接口为getQStat()，即获取量子态所有分量的振幅，计算结果如下
+上述程序使用的接口为getQState()，即获取量子态所有分量的振幅，计算结果如下
 
     .. code-block:: c
 
@@ -170,11 +170,11 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
             0000000100 : 0.000488281
             0000000101 : 0.000488281
 
-    - ``PMeasure_bin_index(std::string)`` ,输入的参数表示指定需要测量的量子态二进制形式，使用示例如下：
+    - ``pMeasureBinIndex(std::string)`` ,输入的参数表示指定需要测量的量子态二进制形式，使用示例如下：
 
         .. code-block:: c
 
-            auto res = machine->PMeasure_bin_index("0000000001");
+            auto res = machine->pMeasureBinIndex("0000000001");
             std::cout << res << std::endl;
 
         结果输出如下，表示目标量子态的概率值：
@@ -183,11 +183,11 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
 
             8.37758e-05
 
-    - ``PMeasure_dec_index(std::string)`` ,输入的参数表示指定需要测量的量子态十进制下标形式，使用示例
+    - ``pMeasureDecIndex(std::string)`` ,输入的参数表示指定需要测量的量子态十进制下标形式，使用示例
 
         .. code-block:: c
 
-            auto res = machine->PMeasure_bin_index("1");
+            auto res = machine->pMeasureBinIndex("1");
             std::cout << res << std::endl;
 
         结果输出如下，表示目标量子态的概率值：
@@ -196,7 +196,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
 
             8.37758e-05
 
-    - ``PMeasureSubSet(QProg &, std::vector<std::string>)`` ,输入的第一个参数表示待运行的量子线路，第二个参数表示需要测量的量子态二进制下标形式构成的子集，使用示例如下：
+    - ``pMeasureSubSet(QProg &, std::vector<std::string>)`` ,输入的第一个参数表示待运行的量子线路，第二个参数表示需要测量的量子态二进制下标形式构成的子集，使用示例如下：
 
         .. code-block:: c
 
@@ -216,3 +216,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
             0000000001 : 8.37758e-05
             0000000100 : 0.000488281
 
+        .. warning::
+
+            1. 部分接口，比如 ``getQState()`` 、 ``PMeasure(std::string)`` 、 ``PMeasure(QVec,std::string)`` 、 ``pMeasureBinIndex(std::string)`` 以及 ``pMeasureDecIndex(std::string)`` 等会在后续的版本中舍弃。
+            2. 部分振幅虚拟机会保留 ``pMeasureSubSet(QProg &, std::vector<std::string>)`` 接口。

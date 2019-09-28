@@ -99,6 +99,17 @@ CMake+MinGW的编译命令如下：
 Linux 和 MacOS
 >>>>>>>>>>>>>>>
 
+环境要求
+*********
+- gcc/clang/（其它C++编译器）：支持C++14标准以及OpenMP
+- CMake 3.0 以上
+- pkg-config工具(Linux,必须。Ubuntu下使用 sudo apt-get install pkg-config 安装,CentOS下需要下载源码编译)
+- UUID库（Linux，必须。Ubuntu下使用 sudo apt-get install uuid-dev 安装，CentOS下使用yum install libuuid-devel安装）
+- Python 3.5 以上 (pyQPanda，可选)
+- CURL (量子云连接功能，可选)
+- MPI (在集群上运行量子虚拟机，可选)
+- CUDA 9 以上 (在GPU上运行量子虚拟机，可选)
+
 编译
 *******
 
@@ -140,7 +151,7 @@ Linux 和 MacOS
 
     .. code-block:: c
 
-        #include "QPanda.h"
+        #include "Core/QPanda.h"
         #include <stdio.h>
         using namespace QPanda;
         int main()
@@ -160,6 +171,19 @@ Linux 和 MacOS
         }
 
 示例程序的编译方式与编译QPanda库的方式基本类似，在这里就不多做赘述。我们在QPanda-2的github库中添加了 `Template <https://github.com/OriginQ/QPanda-2/tree/master/Template>`_ 文件夹，用于展示各个平台的使用案例。
+
+在Linux环境下，用户也可以使用g++编译test.cpp，编译命令如下所示：
+
+    .. code-block:: c
+
+        g++ test.cpp -std=c++14 -fopenmp -I{QPanda安装路径}/include/qpanda2/ -I{QPanda安装路径}/include/qpanda2/ThirdParty/ -L{QPanda安装路径}/lib/ -lQPanda2 -lTinyXML -o test
+
+如果宿主机上安装了libcurl，则编译命令如下所示：
+
+    .. code-block:: c
+
+        g++ test.cpp -std=c++14 -fopenmp -I{QPanda安装路径}/include/qpanda2/ -I{QPanda安装路径}/include/qpanda2/ThirdParty/ -L{QPanda安装路径}/lib/ -lQPanda2 -lTinyXML -lcurl -o test
+
 
 编译之后的可执行文件会生成在build下的bin文件夹中，进入到bin目录下就可以执行自己编写的量子程序了。
 
