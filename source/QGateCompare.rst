@@ -86,9 +86,10 @@
         unsupport QGate num: 4
 
 
-.. warning:: 新版本接口名将有调整，旧版本接口将于下版本去除，请读者知悉。\
+.. warning:: 
+        新版本中接口名有所调整，旧接口 ``getUnSupportQGateNumber()`` 将由 ``getUnsupportQGateNum()`` 替代。\
 
-            ``getUnsupportQGateNum()`` 替换 ``getUnSupportQGateNumber()``
+        ``getUnSupportQGateNumber()`` 将于下版本去除，请读者知悉。
 
     
     

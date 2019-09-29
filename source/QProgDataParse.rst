@@ -106,8 +106,8 @@
 .. note:: 可以运行出正确的结果说明可以将序列化的量子程序正确的解析出来
 
 
-.. warning:: 新版本接口名将有调整，旧版本接口将于下版本去除，请读者知悉。\
-
-            ``transformBinaryDataToQProg()`` 替换 ``binaryQProgDataParse()``
-
+.. warning:: 
+        新版本中接口名有所调整，旧接口 ``binaryQProgDataParse()`` 将由 ``transformBinaryDataToQProg()`` 替代。\
+      
+        ``binaryQProgDataParse()`` 将于下版本去除，请读者知悉。
 

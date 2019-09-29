@@ -75,8 +75,10 @@
 
         QGate number: 5
 
-.. warning:: 新版本接口名将有调整，旧版本接口将于下版本去除，请读者知悉。\
+.. warning:: 
+        新版本中接口名有所调整，旧接口 ``getQGateNumber()`` 将由 ``getQGateNum()`` 替代。\
+      
+        ``getQGateNumber()`` 将于下版本去除，请读者知悉。
 
-            ``getQGateNum()`` 替换 ``getQGateNumber()``
 
     

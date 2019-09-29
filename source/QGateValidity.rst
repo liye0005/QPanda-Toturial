@@ -129,4 +129,8 @@
 
 
 
+.. warning:: 
+        新版本中接口名有所调整，旧接口 ``SingleGateTypeValidator::GateType()`` 和 ``DoubleGateTypeValidator::GateType()`` 
+        分别由新接口 ``validateSingleQGateType()`` 和 ``validateDoubleQGateType()`` 替代。\
 
+        ``SingleGateTypeValidator::GateType()`` 和 ``DoubleGateTypeValidator::GateType()``  将于下版本去除，请读者知悉。
