@@ -65,7 +65,7 @@ QPanda2中设计了 ``SingleAmplitudeQVM`` 类用于运行单振幅模拟量子�
             machine->init();
 
             auto prog = QProg();
-            auto qlist = machine->allocateQubits(10);
+            auto qlist = machine->qAllocMany(10);
 
             for_each(qlist.begin(), qlist.end(), [&](Qubit *val) { prog << H(val); });
             prog << CZ(qlist[1], qlist[5])

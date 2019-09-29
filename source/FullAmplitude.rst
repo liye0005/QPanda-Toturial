@@ -36,7 +36,7 @@ QPanda2中在构造量子虚拟机时有以下几种方式：
         Configuration conf;
         conf.maxQubit = 30;
         conf.maxCMem = 30;
-        qvm->setConfig(conf);
+        qvm->setConfigure(conf);
 
 .. note:: 量子虚拟机默认的最大量子比特个数和经典寄存器个数均为25。
 
@@ -54,13 +54,13 @@ QPanda2中在构造量子虚拟机时有以下几种方式：
 
     .. code-block:: c
 
-        QVec qubits = qvm->allocateQubits(4);
+        QVec qubits = qvm->qAllocMany(4);
 
 申请一个量子比特时也可以用这个接口：
 
     .. code-block:: c
 
-        Qubit* qubit = qvm->allocateQubit();
+        Qubit* qubit = qvm->qAlloc();
 
 如果我们想在固定的量子比特虚拟地址上申请一个量子比特可以用下面的方法：
 
@@ -72,26 +72,26 @@ QPanda2中在构造量子虚拟机时有以下几种方式：
 
     .. code-block:: c
 
-        std::vector<ClassicalCondition> cbits = qvm->allocateCBits(4);
+        std::vector<ClassicalCondition> cbits = qvm->cAllocMany(4);
 
 申请一个经典寄存器时也可以用这个接口：
 
     .. code-block:: c
 
-        ClassicalCondition cbit = qvm->allocateCBit();
+        ClassicalCondition cbit = qvm->cAlloc();
 
 固定的经典寄存器虚拟地址上申请一个量子比特可以用下面的方法：
 
     .. code-block:: c
 
-        ClassicalCondition cbit = qvm->allocateCBit(0x01);
+        ClassicalCondition cbit = qvm->cAlloc(0x01);
 
 在一个量子虚拟机中，申请了几次量子比特或经典寄存器，我们想知道一共申请了多少个量子比特或经典寄存器可以用下面的方法：
 
     .. code-block:: c
 
-        size_t num_qubit = qvm->getAllocateQubit(); // 申请量子比特的个数
-        size_t num_cbit = qvm->getAllocateCMem(); // 申请经典寄存器的个数
+        size_t num_qubit = qvm->getAllocateQubitNum(); // 申请量子比特的个数
+        size_t num_cbit = qvm->getAllocateCMemNum(); // 申请经典寄存器的个数
 
 我们该如何使用量子虚拟机来执行量子程序呢？ 可以用下面的方法：
 
@@ -179,36 +179,6 @@ QPanda2中在构造量子虚拟机时有以下几种方式：
         1000, 502
 
 .. note:: 这个量子程序的运行结果是不确定的，但其 ``0000`` 和 ``1000`` 对应的值都应该在500左右。
-
-函数对照表
-------------------
-
-QPanda2中还提供了一些面向过程的接口，其使用方法和面向对象的方式相似，下面提供一份面向对象与面向过程的函数对照表：
-
-=========================================  ========================= 
-        面向对象接口                          面向过程接口  
-=========================================  =========================  
-     QVM::init                                init
-     QVM::allocateQubit                       qAlloc
-     QVM::allocateCBit                        cAlloc
-     QVM::allocateQubits                      qAllocMany
-     QVM::allocateCBits                       cAllocMany
-     QVM::getAllocateQubit                    getAllocateQubitNum
-     QVM::getAllocateCMem                     getAllocateCMem
-     QVM::directlyRun                         directlyRun    
-     QVM::runWithConfiguration                runWithConfiguration
-     QVM::PMeasure                            PMeasure
-     QVM::PMeasure_no_index                   PMeasure_no_index   
-     QVM::getProbTupleList                    getProbTupleList
-     QVM::getProbList                         getProbList
-     QVM::getProbDict                         getProbDict
-     QVM::probRunTupleList                    probRunTupleList
-     QVM::probRunList                         probRunList
-     QVM::probRunDict                         probRunDict
-     QVM::quickMeasure                        quickMeasure
-     QVM::getQStat                            getQState
-     QVM::finalize                            finalize
-=========================================  ========================= 
 
 实例2
 ------------------
