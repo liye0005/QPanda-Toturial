@@ -83,5 +83,5 @@
 
     .. code-block:: c
 
-        clockCycle : 14
+        clockCycle : 12
     
