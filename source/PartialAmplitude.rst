@@ -37,7 +37,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
     .. code-block:: c
 
         auto prog = QProg();
-        auto qlist = machine->allocateQubits(10);
+        auto qlist = machine->qAllocMany(10);
 
         for_each(qlist.begin(), qlist.end(), [&](Qubit *val) { prog << H(val); });
         prog << CZ(qlist[1], qlist[5]) << CZ(qlist[3], qlist[5]) << CZ(qlist[2], qlist[4]);
@@ -69,7 +69,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
             auto machine = new PartialAmplitudeQVM();
             machine->init();
 
-            auto qlist = machine->qAlloc(10);
+            auto qlist = machine->qAllocMany(10);
 
             auto prog = QProg();
             for_each(qlist.begin(), qlist.end(), [&](Qubit *val) { prog << H(val); });
@@ -196,12 +196,12 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
 
             8.37758e-05
 
-    - ``pMeasureSubSet(QProg &, std::vector<std::string>)`` ,输入的第一个参数表示待运行的量子线路，第二个参数表示需要测量的量子态二进制下标形式构成的子集，使用示例如下：
+    - ``pMeasureSubset(QProg &, std::vector<std::string>)`` ,输入的第一个参数表示待运行的量子线路，第二个参数表示需要测量的量子态二进制下标形式构成的子集，使用示例如下：
 
         .. code-block:: c
 
             std::vector<std::string> set = { "0000000000","0000000001","0000000100" };
-            auto res = machine->PMeasureSubSet(prog, set);
+            auto res = machine->PMeasureSubset(prog, set);
 
             for (auto val : res)
             {
@@ -219,4 +219,4 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
         .. warning::
 
             1. 部分接口，比如 ``getQState()`` 、 ``PMeasure(std::string)`` 、 ``PMeasure(QVec,std::string)`` 、 ``pMeasureBinIndex(std::string)`` 以及 ``pMeasureDecIndex(std::string)`` 等会在后续的版本中舍弃。
-            2. 部分振幅虚拟机会保留 ``pMeasureSubSet(QProg &, std::vector<std::string>)`` 接口。
+            2. 部分振幅虚拟机会保留 ``pMeasureSubset(QProg &, std::vector<std::string>)`` 接口。

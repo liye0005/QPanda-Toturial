@@ -24,6 +24,9 @@ C语言风格
 
         QWhileProg qwile = CreateWhileProg(ClassicalCondition, QProg);
 
+        QWhileProg qwile = createWhileProg(ClassicalCondition, QProg);
+
+
 上述函数需要提供两个参数，即ClassicalCondition(量子表达式)与QProg(量子程序)
 
 .. note:: 由于QNode*、 shared_ptr<QNode>、QCircuit、QIfProg、QWhileProg、QGate、QMeasure、ClassicalCondition可以隐式转换为QProg，
@@ -33,15 +36,22 @@ C语言风格
 
     .. code-block:: c
 
-        QWhileProg qwhile = CreateWhileProg(ClassicalCondition, QProg);
+        QWhileProg qwhile = createWhileProg(ClassicalCondition, QProg);
         QNode* true_branch = qwhile.getTrueBranch();
 
 也可以获取量子表达式
 
     .. code-block:: c
 
-        QWhileProg qwhile = CreateWhileProg(ClassicalCondition, QProg);
-        ClassicalCondition* expr = qwhile.getCExpr();
+        QWhileProg qwhile = createWhileProg(ClassicalCondition, QProg);
+        ClassicalCondition cc = qwhile.getCExpr();
+
+或
+
+    .. code-block:: c
+
+        QWhileProg qwhile = createWhileProg(ClassicalCondition, QProg);
+        ClassicalCondition cc = qwhile.getClassicalCondition();
 
 具体的操作流程可以参考下方示例
 
@@ -64,7 +74,7 @@ C语言风格
 
             QProg prog_in;
             prog_in<< cvec[0] << H(qvec[cvec[0]]) << (cvec[0] = cvec[0]+1);
-            auto qwhile = CreateWhileProg(cvec[0]<3, prog_in);
+            auto qwhile = createWhileProg(cvec[0]<3, prog_in);
             prog << qwhile;
             auto result = probRunTupleList(prog, qvec);
 
@@ -89,3 +99,7 @@ C语言风格
         5, 0.125
         6, 0.125
         7, 0.125
+
+.. warning::
+
+    ``CreateQWhile``、 ``getCExpr`` 等在后续的版本中会被舍弃。
