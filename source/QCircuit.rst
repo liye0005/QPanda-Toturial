@@ -38,6 +38,12 @@ C语言风格
 
         QCircuit cir = CreateEmptyCircuit();
 
+或
+
+    .. code-block:: c
+
+        QCircuit cir = createEmptyCircuit();
+
 你可以通过如下方式向QCircuit尾部填充节点
 
         .. code-block:: c
@@ -132,3 +138,6 @@ control的作用是复制当前的量子线路，并给复制的量子线路添�
         0000, 510
         1000, 490
 
+.. warning::
+
+    ``CreateEmptyCircuit`` 接口在后续的版本中会被舍弃。
