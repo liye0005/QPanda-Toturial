@@ -48,11 +48,11 @@ rapidjson如何使用，我们可以到 `Rapidjson首页 <http://rapidjson.org/z
 
           Value value_ry(rapidjson::kArrayType);
           value_ry.PushBack(DECOHERENCE_KRAUS_OPERATOR, doc1.GetAllocator());
-          value_ry.PushBack(10.0, doc1.GetAllocator());
-          value_ry.PushBack(2.0, doc1.GetAllocator());
-          value_ry.PushBack(0.03, doc1.GetAllocator());
-          value.AddMember("RY", value_ry, doc1.GetAllocator());
-          doc.AddMember("noisemodel", value, doc1.GetAllocator());
+          value_ry.PushBack(10.0, doc.GetAllocator());
+          value_ry.PushBack(2.0, doc.GetAllocator());
+          value_ry.PushBack(0.03, doc.GetAllocator());
+          value.AddMember("RY", value_ry, doc.GetAllocator());
+          doc.AddMember("noisemodel", value, doc.GetAllocator());
           NoiseQVM qvm；
           qvm.init(doc);
 
