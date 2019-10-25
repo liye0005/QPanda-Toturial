@@ -24,6 +24,12 @@ C语言风格
 
         QProg prog = CreateEmptyQProg();
 
+或
+
+    .. code-block:: c
+
+        QProg prog = createEmptyQProg();
+
 QProg的构造函数还有以下几种：
 
 通过QNode*构造量子程序：
@@ -189,3 +195,7 @@ QNode的类型有QGate，QPorg，QIf，Measure等等，QProg支持插入所有�
         1001, 277
         1110, 254
         1111, 227
+
+.. warning::
+
+    ``CreateEmptyQProg`` 接口在后续的版本中会被舍弃。
