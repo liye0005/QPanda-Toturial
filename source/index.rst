@@ -42,27 +42,33 @@ QPanda 2是由本源量子开发的开源量子计算框架，它可以用于构
     PMeasure
 
 .. toctree::
-    :caption: 工具组件
+    :caption: 工具
     :maxdepth: 2
 
-    QGateValidity
+.. toctree::
+    :caption: 信息
+    :maxdepth: 2
+
+    QGateValidity 
+    QProgClockCycle  
     QGateCounter
-    QProgClockCycle
-    QProgStored
-    QProgDataParse
-    OriginIRToQProg
     QCircuitInfo
 
 .. toctree::
-    :caption:量子程序转换
+    :caption: 编译
     :maxdepth: 2
     
     QProgToQASM
-    QProgToOriginIR
     QProgToQuil
+    QProgStored
+    QProgDataParse
+    QProgToQRunes
+    QRunesToQProg
+    QProgToOriginIR
+    OriginIRToQProg
 
 .. toctree::
-    :caption: 算法组件
+    :caption: 组件
     :maxdepth: 2
 
     PauliOperator

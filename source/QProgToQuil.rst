@@ -62,7 +62,7 @@
 
     .. code-block:: c
 
-        #include "Core/QPanda.h"
+        #include "QPanda.h"
         USING_QPANDA
 
 

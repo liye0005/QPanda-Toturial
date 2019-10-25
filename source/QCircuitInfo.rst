@@ -10,9 +10,9 @@
 实例
 ---------------
 
-::
+ .. code-block:: c
 
-    #include "Core/QPanda.h"
+    #include "QPanda.h"
     USING_QPANDA
 
     int main(void)

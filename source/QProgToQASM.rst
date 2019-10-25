@@ -54,7 +54,7 @@ QPanda2提供了QASM转换工具接口 ``std::string transformQProgToQASM(QProg 
 
     .. code-block:: c
 
-        #include "Core/QPanda.h"
+        #include "QPanda.h"
         USING_QPANDA
 
         int main(void)

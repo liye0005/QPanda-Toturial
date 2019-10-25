@@ -139,7 +139,7 @@ QPanda2中在构造量子虚拟机时有以下几种方式：
 
     .. code-block:: c
 
-        #include "Core/QPanda.h"
+        #include "QPanda.h"
         USING_QPANDA
 
         int main(void)

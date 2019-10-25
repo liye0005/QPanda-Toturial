@@ -155,7 +155,7 @@ QNode的类型有QGate，QPorg，QIf，Measure等等，QProg支持插入所有�
 
     .. code-block:: c
 
-        #include "Core/QPanda.h"
+        #include "QPanda.h"
         USING_QPANDA
 
         int main(void)

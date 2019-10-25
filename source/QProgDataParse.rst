@@ -55,7 +55,7 @@
 
     .. code-block:: c
     
-        #include "Core/QPanda.h"
+        #include "QPanda.h"
         #include "Core/Utilities/base64.hpp"
 
         USING_QPANDA
