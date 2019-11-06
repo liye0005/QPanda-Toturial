@@ -31,7 +31,7 @@ QPanda2中设计了 ``SingleAmplitudeQVM`` 类用于运行单振幅模拟量子�
     .. code-block:: c
 
         auto prog = QProg();
-        auto qlist = machine->allocateQubits(10);
+        auto qlist = machine->qAlloc(10);
 
         for_each(qlist.begin(), qlist.end(), [&](Qubit *val) { prog << H(val); });
         prog << CZ(qlist[1], qlist[5]) << CZ(qlist[3], qlist[5]) << CZ(qlist[2], qlist[4]);
@@ -65,7 +65,7 @@ QPanda2中设计了 ``SingleAmplitudeQVM`` 类用于运行单振幅模拟量子�
             machine->init();
 
             auto prog = QProg();
-            auto qlist = machine->allocateQubits(10);
+            auto qlist = machine->qAllocMany(10);
 
             for_each(qlist.begin(), qlist.end(), [&](Qubit *val) { prog << H(val); });
             prog << CZ(qlist[1], qlist[5])
@@ -94,11 +94,11 @@ QPanda2中设计了 ``SingleAmplitudeQVM`` 类用于运行单振幅模拟量子�
                  << CR(qlist[7], qlist[8], PI);
                 
             machine->run(prog);
-            auto res = machine->getQStat();
+            auto res = machine->getQState();
             cout << res["0000000000"] << endl;
             cout << res["0000000001"] << endl;
 
-    getQStat()接口表示获取量子态所有分量的振幅，输出结果用map容器保存，key为量子态对应的字符串，value为对应的振幅，上述程序的计算结果如下
+    getQState()接口表示获取量子态所有分量的振幅，输出结果用map容器保存，key为量子态对应的字符串，value为对应的振幅，上述程序的计算结果如下
 
     .. code-block:: c
 
@@ -175,11 +175,11 @@ QPanda2中设计了 ``SingleAmplitudeQVM`` 类用于运行单振幅模拟量子�
             0000000100 : 0.000286028
             0000000101 : 0.000286028
 
-    - ``PMeasure_bin_index(std::string)`` ,输入的参数表示指定需要测量的量子态二进制形式，使用示例如下：
+    - ``pMeasureBinIndex(std::string)`` ,输入的参数表示指定需要测量的量子态二进制形式，使用示例如下：
 
         .. code-block:: c
 
-            auto res = machine->PMeasure_bin_index("0000000001");
+            auto res = machine->pMeasureBinIndex("0000000001");
             std::cout << res << std::endl;
 
         结果输出如下，表示目标量子态的概率值：
@@ -188,11 +188,11 @@ QPanda2中设计了 ``SingleAmplitudeQVM`` 类用于运行单振幅模拟量子�
 
             0.00166709
 
-    - ``PMeasure_dec_index(std::string)`` ,输入的参数表示指定需要测量的量子态十进制下标形式，使用示例
+    - ``pMeasureDecIndex(std::string)`` ,输入的参数表示指定需要测量的量子态十进制下标形式，使用示例
 
         .. code-block:: c
 
-            auto res = machine->PMeasure_bin_index("1");
+            auto res = machine->pMeasureBinIndex("1");
             std::cout << res << std::endl;
 
         结果输出如下，表示目标量子态的概率值：
@@ -200,4 +200,9 @@ QPanda2中设计了 ``SingleAmplitudeQVM`` 类用于运行单振幅模拟量子�
         .. code-block:: c
 
             0.00166709
+
+        .. warning::
+
+            1. 部分接口，比如 ``getQState()`` 、 ``PMeasure(string)`` 、 ``PMeasure(string)`` 以及 ``getProbDict(qvec,string)`` 等会在后续的版本中舍弃。
+            2. 单振幅虚拟机会保留 ``pMeasureBinIndex(string)`` 以及 ``pMeasureDecIndex(string)`` 接口，并且它们的使用方式会略微调整。
 

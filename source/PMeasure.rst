@@ -3,10 +3,10 @@
 概率测量
 ==================
 
-概率测量是指获得目标量子比特的振幅，目标量子比特可以是一个量子比特也可以是多个量子比特的集合。 在QPanda2中概率测量又称为 ``PMeasure`` 。
+概率测量是指获得目标量子比特的振幅，目标量子比特可以是一个量子比特也可以是多个量子比特的集合。 在QPanda2中概率测量又称为PMeasure, 在QPanda2中的接口为 ``pMeasure`` 。
 概率测量和 :ref:`Measure` 是完全不同的过程，Measure是执行了一次测量， 并返回一个确定的0/1结果，并且改变了量子态，
-PMeasure是获得我们所关注的量子比特的振幅，并不会改变量子态，PMeasure的输入参数是 ``QVec``， 它指定了我们关注的量子比特。
-例如，一共有10个Qubit的系统，我们指定了前三个Qubit作为PMeasure的目标，就会输出一个长度为8的vector。
+PMeasure是获得我们所关注的量子比特的振幅，并不会改变量子态， ``pMeasure`` 的输入参数是 ``QVec`` ， 它指定了我们关注的量子比特。
+例如，一共有10个Qubit的系统，我们指定了前三个Qubit作为 ``pMeasure`` 的目标，就会输出一个长度为8的vector。
 
 接口介绍
 ----------------
@@ -41,7 +41,7 @@ QPanda2提供了三种获得PMeasure结果的方式，其中有 ``probRunList`` 
 
     .. code-block:: c
 
-        #include <QPanda.h>
+        #include "Core/QPanda.h"
         USING_QPANDA
 
         int main(void)

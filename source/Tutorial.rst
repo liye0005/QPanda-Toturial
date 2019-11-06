@@ -1,5 +1,5 @@
 下载、编译、安装和使用
-======================
+=============================
 
 下载QPanda-2
 ------------------
@@ -31,6 +31,14 @@
 编译和安装
 ------------------
 
+在编译QPanda2之前，可以先了解一下QPanda2的可配置项
+
+1. ``FIND_CUDA`` : 查询系统中是否有cuda库，如果有就会将其编译进去， 在做量子计算时可以选择GPU作为计算后端
+2. ``USE_CHEMIQ`` : 化学模拟库
+3. ``USE_PYQPANDA`` : 编译出共python使用的pyqpanda库
+
+*默认情况下，上述的配置项都是关闭的，如果有需要，可以在编译时选择打开*
+
 Windows
 >>>>>>>>>>>
 
@@ -41,31 +49,43 @@ Visual Studio
 
 编译
 `````````
-这里以Visual Studio 2017为例，使用Visual Studio 2017 编译QPanda-2,只需要安装Visual Studio 2017，并需要在组件中安装CMake组件。安装完成之后，用Visual Studio 2017打开QPanda-2文件夹，即可使用CMake编译QPanda-2。
+这里以Visual Studio 2017为例，使用Visual Studio 2017 编译QPanda-2,只需要安装Visual Studio 2017，
+并需要在组件中安装CMake组件。安装完成之后，用Visual Studio 2017打开QPanda-2文件夹。
 
+首先，要选择x64-Release的模式下编译，按下面的提示选择：
 
-.. image:: images/VSCompiler.png
+.. image:: images/CMakeRelease.png
     :align: center 
+
+然后, 选择更改cmake设置，查看有没有需要修改的配置项，如下:
+
+.. image:: images/CMakeSetting.png
+    :align: center 
+
+
+进入cmake设置后可以看到，在默认情况下，``FIND_CUDA``、``USE_CHEMIQ``、``USE_PYQPANDA`` 都是关闭的，如果有需要可以将对应的选项中的 ``OFF`` 修改为 ``ON``
+
+.. image:: images/CMakeOptional.png
+    :align: center
+
+然后，点击 CMAKE选项中的 ``全部生成``
+
+.. image:: images/BuildAll.png
+    :align: center 
+
+可以看到:
+
+.. image:: images/CMakeCompiling.png
+    :align: center 
+
+等待一会，就会完成编译。
 
 安装
 `````````
-在QPanda-2编译完成后，用户可以安装QPanda-2，Visual Studio 2017的安装方式很简单，只需要在Cmake菜单中选择安装即可。
+在QPanda-2编译完成后，用户可以安装QPanda-2，Visual Studio 2017的安装方式很简单，只需要在cmake菜单中选择安装即可。
 
-.. image:: images/VSInstall.png
+.. image:: images/CMakeInstall.png
     :align: center   
-
-
-QPanda-2会安装在用户在CMakeSettings.json中配置的安装目录下。安装成功后会在用户配置的的目录下生成install文件夹，里面安装生成include和lib文件。如果有需求，用户可以在Visual Studio的CMakeSettings.json配置文件修改QPanda-2的安装路径。生成CMakeSettings.json的方法如下图所示：
-
-.. image:: images/VSUpdateConfig.png
-    :align: center   
-
-修改QPanda-2的安装路径如下图所示：
-
-.. image:: images/VSUpdatePath.png
-    :align: center   
-
-参数修改完成后，cmake选项下执行安装，Qpanda-2的lib库文件和include头文件会安装到用户指定的安装位置。(注意：需先进行编译成功后才能进行安装)
 
 MinGW
 **********************
@@ -79,13 +99,18 @@ CMake+MinGW的编译命令如下：
 
 1. 在QPanda-2根目录下创建build文件夹
 2. 进入build文件夹，打开cmd
-3. 由于MinGW对CUDA的支持存在一些问题，所以在编译时需要禁掉CUDA，输入以下命令：
+3. 输入下面的命令：
 
 .. code-block:: c
 
-    cmake -G"MinGW Makefiles" -DFIND_CUDA=OFF -DCMAKE_INSTALL_PREFIX=C:/QPanda2 ..
+    cmake -G"MinGW Makefiles" -DCMAKE_INSTALL_PREFIX=C:/QPanda2 -DFIND_CUDA=OFF -DUSE_CHEMIQ=OFF -DUSE_PYQPANDA=OFF ..
     mingw32-make
 
+也可以根据需要，将一些可配置项设置为 ``ON``。
+
+.. warning::
+
+    MinGW在支持cuda有还存在一些问题，因此使用MinGW不能将 ``DFIND_CUDA`` 设置为ON。
 
 安装
 `````````
@@ -99,6 +124,17 @@ CMake+MinGW的编译命令如下：
 Linux 和 MacOS
 >>>>>>>>>>>>>>>
 
+环境要求
+*********
+- gcc/clang/（其它C++编译器）：支持C++14标准以及OpenMP
+- CMake 3.0 以上
+- pkg-config工具(Linux,必须。Ubuntu下使用 sudo apt-get install pkg-config 安装,CentOS下需要下载源码编译)
+- UUID库（Linux，必须。Ubuntu下使用 sudo apt-get install uuid-dev 安装，CentOS下使用yum install libuuid-devel安装）
+- Python 3.5 以上 (pyQPanda，可选)
+- CURL (量子云连接功能，可选)
+- MPI (在集群上运行量子虚拟机，可选)
+- CUDA 9 以上 (在GPU上运行量子虚拟机，可选)
+
 编译
 *******
 
@@ -109,7 +145,7 @@ Linux 和 MacOS
 
     mkdir -p build
     cd build
-    cmake ..
+    cmake -DFIND_CUDA=OFF -DUSE_CHEMIQ=OFF -DUSE_PYQPANDA=OFF ..
     make
 
 如果有需求，用户通过命令修改QPanda-2的安装路径，配置方法如下所示：
@@ -118,9 +154,10 @@ Linux 和 MacOS
 
     mkdir -p build
     cd build
-    cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
+    cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DFIND_CUDA=OFF -DUSE_CHEMIQ=OFF -DUSE_PYQPANDA=OFF ..
     make
 
+也可以根据需求将可配置项设置为 ``ON``
 
 安装
 *******
@@ -132,6 +169,10 @@ Linux 和 MacOS
     sudo make install
 
 
+.. note:: 
+
+    如果想使用pyqpanda也可以通过 ``pip install pyqpanda`` 命令直接下载我们发布的库，可以避免由于系统中的环境配置有问题导致pyqpanda编译出错的问题。
+
 使用
 ------------------
 
@@ -140,7 +181,7 @@ Linux 和 MacOS
 
     .. code-block:: c
 
-        #include "QPanda.h"
+        #include "Core/QPanda.h"
         #include <stdio.h>
         using namespace QPanda;
         int main()
@@ -161,7 +202,24 @@ Linux 和 MacOS
 
 示例程序的编译方式与编译QPanda库的方式基本类似，在这里就不多做赘述。我们在QPanda-2的github库中添加了 `Template <https://github.com/OriginQ/QPanda-2/tree/master/Template>`_ 文件夹，用于展示各个平台的使用案例。
 
-编译之后的可执行文件会生成在build下的bin文件夹中，进入到bin目录下就可以执行自己编写的量子程序了。
+在Linux环境下，用户也可以使用g++编译test.cpp，编译命令如下所示：
+
+    .. code-block:: c
+
+        g++ test.cpp -std=c++14 -fopenmp -I{QPanda安装路径}/include/qpanda2/ -I{QPanda安装路径}/include/qpanda2/ThirdParty/ -L{QPanda安装路径}/lib/ -lComponents -lQAlg  -lQPanda2 -lTinyXML -lantlr4  -lGPUQGates -o test
+
+如果宿主机上安装了libcurl，则编译命令如下所示：
+
+    .. code-block:: c
+
+        g++ test.cpp -std=c++14 -fopenmp -I{QPanda安装路径}/include/qpanda2/ -I{QPanda安装路径}/include/qpanda2/ThirdParty/ -L{QPanda安装路径}/lib/ -lComponents -lQAlg  -lQPanda2 -lTinyXML -lantlr4  -lGPUQGates -lcurl -o test
+
+如果安装的是可以含有CUDA的库，则编译命令如下：
+
+    .. code-block:: c
+
+        g++ test.cpp -std=c++14 -fopenmp  -I{QPanda安装路径}/include/qpanda2/ -I{QPanda安装路径}/include/qpanda2/ThirdParty/ -L{QPanda安装路径}/lib/ -lComponents -lQAlg  -lQPanda2 -lTinyXML -lantlr4  -lGPUQGates -L{cuda安装目录}/lib/  -lcudart  -o test
+
 
 
 计算结果如下所示：
@@ -170,3 +228,7 @@ Linux 和 MacOS
 
         00 : 493 
         11 : 507
+
+.. note:: 
+
+    上面只是简单介绍了QPanda2在linux下的使用教程，其他平台如windows下的VS、MinGW，MacOS下Clang调用QPanda2的方式请参照我们的示例项目 `QPanda-Example <https://github.com/OriginQ/QPanda-Example>`_ 
