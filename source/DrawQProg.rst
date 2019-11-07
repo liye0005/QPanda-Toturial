@@ -66,11 +66,11 @@
 	cir2.setDagger(true);
 	prog << (cir2) << (MeasureAll(q, c));
 
-	string mmmm = draw_qprog(prog);
-	cout << "draw_qprog:" << endl << mmmm << endl;
+	string text_picture = draw_qprog(prog);
+	cout << "draw_qprog:" << endl << text_picture << endl;
 
-	mmmm = draw_qprog_with_clock(prog);
-	cout << "draw_qprog_with_clock:" << endl << mmmm << endl;
+	text_picture = draw_qprog_with_clock(prog);
+	cout << "draw_qprog_with_clock:" << endl << text_picture << endl;
 
 	destroyQuantumMachine(machine);
     }
