@@ -87,8 +87,8 @@
 ::
 
     //普通方法打印字符画
-    string mmmm = draw_qprog(prog);
-    cout << mmmm << endl;
+    string text_picture = draw_qprog(prog);
+    cout << text_picture << endl;
     
     //通过重载cout，进行字符画打印
     cout << prog << endl;
