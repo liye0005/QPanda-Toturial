@@ -66,6 +66,8 @@ QPanda 2是由本源量子开发的开源量子计算框架，它可以用于构
 .. toctree::
     :caption: 实用工具
     :maxdepth: 2
+    
+    GraphMatch
 
 .. toctree::
     :caption: 组件
