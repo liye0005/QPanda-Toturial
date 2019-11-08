@@ -57,7 +57,7 @@
 
 以上示例演示了draw_qprog这个接口的使用方法，上述代码的输出结果如下：
 
-.. figure:: ./images/text_pic.png
+.. figure:: ./images/draw_prog.png
    :alt:
 
 在实际使用过程中，为了方便调用，我们重载了标准输出std::cout，所以以下两部分代码是等价的：
