@@ -33,7 +33,7 @@ OriginIR使用CREG申请量子比特，其格式为CREG后跟空格+经典寄存
 
 OriginIR把量子逻辑门分为以下几个种类：
 
-1、单门无参数型关键字：H、T、S、X、Y、Z、X1、Y1、Z1；表示无参数类型的单量子逻辑门；格式为量子逻辑门关键字+空格+目标量子比特。示例：
+1、单门无参数型关键字：H、T、S、X、Y、Z、X1、Y1、Z1、I；表示无参数类型的单量子逻辑门；格式为量子逻辑门关键字+空格+目标量子比特。示例：
 
 ::
 
@@ -45,29 +45,49 @@ OriginIR把量子逻辑门分为以下几个种类：
 
     RX q[0],(1.570796)
 
-3、单门四个参数关键字：U4；表示有四个参数的单量子逻辑门；格式为量子逻辑门关键字+空格+目标量子比特+空格+（四个偏转角度）。示例：
+3、	单门两个参数型关键字：U2；表示有两个参数的单量子逻辑门；格式为量子逻辑门关键字+空格+目标量子比特+空格+（两个偏转角度）。示例：
+
+::
+
+    U2 q[0],(1.570796,-3.141593)
+
+4、	单门三个参数型关键字：U3；表示有三个参数的单量子逻辑门；格式为量子逻辑门关键字+空格+目标量子比特+空格+（三个偏转角度）。示例：
+
+::
+
+    U2 q[0],(1.570796,4.712389,1.570796)
+
+
+5、单门四个参数关键字：U4；表示有四个参数的单量子逻辑门；格式为量子逻辑门关键字+空格+目标量子比特+空格+（四个偏转角度）。示例：
 
 ::
 
     U4 q[1],(3.141593,4.712389,1.570796,-3.141593)
 
-4、双门无参数型关键字：CNOT、CZ、ISWAP、SQISWAP、SWAP；表示无参数类型的单量子逻辑门；格式为量子逻辑门关键字+空格+目标量子比特列表。示例：
+6、双门无参数型关键字：CNOT、CZ、ISWAP、SQISWAP、SWAP；表示无参数的双量子逻辑门；格式为量子逻辑门关键字+空格+目标量子比特列表。示例：
 
 ::
 
     CNOT q[0],q[1]
 
-5、双门一个参数型关键字：ISWAPTHETA、CR；表示有一个参数的单量子逻辑门；格式为量子逻辑门关键字+空格+目标量子比特列表+空格+(偏转角度)。示例：
+7、双门一个参数型关键字：ISWAPTHETA、CR；表示有一个参数的单量子逻辑门；格式为量子逻辑门关键字+空格+目标量子比特列表+空格+(偏转角度)。示例：
 
 ::
 
     CR q[0],q[1],(1.570796)
 
-6、双门四个参数关键字：CU；表示有四个参数的单量子逻辑门；格式为量子逻辑门关键字+空格+目标量子比特列表+空格+（四个偏转角度）。示例：
+8、双门四个参数型关键字：CU；表示有四个参数的单量子逻辑门；格式为量子逻辑门关键字+空格+目标量子比特列表+空格+（四个偏转角度）。示例：
 
 ::
 
     CU q[1],q[3],(3.141593,4.712389,1.570796,-3.141593)
+
+9、	三门无参数型关键字：TOFFOLI；表示无参数的三量子逻辑门；格式为量子逻辑门关键字+空格+目标量子比特列表，其中前两个为控制比特，后一个为目标比特。示例：
+
+::
+
+    TOFFOLI  q[0],q[1],q[2]
+
 
 转置共轭操作
 :::::::::
@@ -200,7 +220,7 @@ OPE算法
     MEASURE q[1],c[1]
 
 
-QPanda2提供了OriginIR转换工具接口 ``std::string transformQProgToOriginIR(QProg &, QuantumMachine*)`` 该接口使用非常简单，具体可参考下方示例程序。
+QPanda2提供了OriginIR转换工具接口 ``std::string convert_qprog_to_originir(QProg &, QuantumMachine*)`` 该接口使用非常简单，具体可参考下方示例程序。
 
 实例
 >>>>>>>>>>>>>>
@@ -217,8 +237,8 @@ QPanda2提供了OriginIR转换工具接口 ``std::string transformQProgToOriginI
         {
             auto qvm = initQuantumMachine();
 
-            auto prog = CreateEmptyQProg();
-            auto cir = CreateEmptyCircuit();
+            auto prog = createEmptyQProg();
+            auto cir = createEmptyCircuit();
 
             auto q = qvm->allocateQubits(6);
             auto c = qvm->allocateCBits(6);
@@ -238,7 +258,7 @@ QPanda2提供了OriginIR转换工具接口 ``std::string transformQProgToOriginI
                 << CR(q[1], q[2], PI / 2)
                 << MeasureAll(q,c);
 
-            std::cout << transformQProgToOriginIR(prog,qvm) << std::endl;
+            std::cout << convert_qprog_to_originir(prog,qvm) << std::endl;
 
             destroyQuantumMachine(qvm);
             return 0;
@@ -252,9 +272,9 @@ QPanda2提供了OriginIR转换工具接口 ``std::string transformQProgToOriginI
 
  - 接着用 ``allocateQubits()`` 和 ``allocateCBits()`` 初始化量子比特与经典寄存器数目
 
- - 然后调用 ``CreateEmptyQProg()`` 构建量子程序
+ - 然后调用 ``createEmptyQProg()`` 构建量子程序
 
- - 最后调用接口 ``transformQProgToOriginIR`` 输出OriginIR字符串，并用 ``destroyQuantumMachine`` 释放系统资源
+ - 最后调用接口 ``convert_qprog_to_originir`` 输出OriginIR字符串，并用 ``destroyQuantumMachine`` 释放系统资源
 
 运行结果如下：
 
@@ -280,4 +300,9 @@ QPanda2提供了OriginIR转换工具接口 ``std::string transformQProgToOriginI
         MEASURE q[4],c[4]
         MEASURE q[5],c[5]
 
-   .. note:: 对于暂不支持的操作类型，OriginIR会显示UnSupported XXXNode，其中XXX为具体的节点类型。
+
+.. note:: 对于暂不支持的操作类型，OriginIR会显示UnSupported XXXNode，其中XXX为具体的节点类型。
+
+
+.. warning:: 
+        新增接口 ``convert_qprog_to_originir()`` ，与老版本接口 ``transformQProgToOriginIR()`` 功能相同。
