@@ -152,7 +152,7 @@ control的作用是复制当前的量子逻辑门，并给复制的量子逻辑�
 
     .. code-block:: c
 
-        #include "Core/QPanda.h"
+        #include "QPanda.h"
         using namespace QPanda；
 
         int main(void)

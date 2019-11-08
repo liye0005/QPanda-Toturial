@@ -61,7 +61,7 @@ QPanda2中设计了 ``PartialAmplitudeQVM`` 类用于运行部分振幅模拟量
 
     .. code-block:: c
 
-        #include "Core/QPanda.h"
+        #include "QPanda.h"
         USING_QPANDA
 
         int main(void)

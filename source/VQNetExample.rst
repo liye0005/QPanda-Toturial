@@ -39,7 +39,7 @@ QAOA
 
 .. code-block:: cpp
 
-    #include "Core/QPanda.h"
+    #include "QPanda.h"
     #include "Operator/PauliOperator.h"
     #include "Variational/var.h"
     #include "Variational/expression.h"

@@ -105,7 +105,7 @@ control的作用是复制当前的量子线路，并给复制的量子线路添�
 
     .. code-block:: c
     
-        #include "Core/QPanda.h"
+        #include "QPanda.h"
         USING_QPANDA
 
         int main(void)

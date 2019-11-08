@@ -181,7 +181,7 @@ Linux 和 MacOS
 
     .. code-block:: c
 
-        #include "Core/QPanda.h"
+        #include "QPanda.h"
         #include <stdio.h>
         using namespace QPanda;
         int main()

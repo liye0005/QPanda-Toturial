@@ -20,7 +20,7 @@ QPanda 2提供了OriginIR文件转换工具接口 ``transformOriginIRToQProg(std
 
     .. code-block:: c
     
-        #include "Core/QPanda.h"
+        #include "QPanda.h"
         USING_QPANDA
 
         int main()

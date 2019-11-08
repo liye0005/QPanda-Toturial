@@ -50,7 +50,7 @@
 
 .. code-block:: cpp
 
-    #include "Core/QPanda.h"
+    #include "QPanda.h"
     #include "Variational/var.h"
 
     int main()

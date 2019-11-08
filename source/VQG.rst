@@ -56,7 +56,7 @@ VariationalQuantumGate_CZ     VQG_CZ
 
 .. code-block:: cpp
 
-    #include "Core/QPanda.h"
+    #include "QPanda.h"
     #include "Variational/var.h"
 
     int main()
@@ -89,7 +89,7 @@ VariationalQuantumGate_CZ     VQG_CZ
         QProg prog;
         prog << circuit;
 
-        std::cout << transformQProgToQRunes(prog, machine) << std::endl << std::endl;
+            std::cout << transformQProgToQRunes(prog, machine) << std::endl << std::endl;
 
         m1(0, 0) = 3;
         m2(0, 0) = 4;
