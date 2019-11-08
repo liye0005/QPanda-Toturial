@@ -66,6 +66,7 @@
 	cir2.setDagger(true);
 	prog << (cir2) << (MeasureAll(q, c));
 
+        //字符画输出
 	string text_picture = draw_qprog(prog);
 	cout << "draw_qprog:" << endl << text_picture << endl;
 
@@ -93,3 +94,16 @@
     //通过重载cout，进行字符画打印
     cout << prog << endl;
     
+
+用户在实际使用过程中，也可以通过传入迭代器参数，输出某个量子程序中指定程序段的字符画，我们可以将上述示例代码中，字符画输出部分做如下修改：
+::
+
+    auto itr1 = cir1.getFirstNodeIter();
+    auto itr2 = cir1.getLastNodeIter();
+    
+    string text_picture = draw_qprog(prog, itr1, itr2);
+    cout << "draw_qprog:" << endl << text_picture << endl;
+    text_picture = draw_qprog_with_clock(prog, itr1, itr2);
+    cout << "draw_qprog_with_clock:" << endl << text_picture << endl;
+
+上述代码段中，在打印线路字符画时，指定了两个迭代器itr1, itr2，最终输出的应该只是子线路cir1的字符画结果。用户可自行替换上述代码段到前面的示例程序中，运行查看结果，这里不再赘述。
