@@ -40,13 +40,9 @@ QPanda 2是由本源量子开发的开源量子计算框架，它可以用于构
     QuantumMachine
     Measure
     PMeasure
-
+    
 .. toctree::
-    :caption: 工具
-    :maxdepth: 2
-
-.. toctree::
-    :caption: 信息
+    :caption: 量子程序信息
     :maxdepth: 2
 
     QGateValidity 
@@ -55,7 +51,7 @@ QPanda 2是由本源量子开发的开源量子计算框架，它可以用于构
     QCircuitInfo
 
 .. toctree::
-    :caption: 编译
+    :caption: 编译量子程序
     :maxdepth: 2
     
     QProgToQASM
@@ -66,6 +62,10 @@ QPanda 2是由本源量子开发的开源量子计算框架，它可以用于构
     QRunesToQProg
     QProgToOriginIR
     OriginIRToQProg
+    
+.. toctree::
+    :caption: 实用工具
+    :maxdepth: 2
 
 .. toctree::
     :caption: 组件
