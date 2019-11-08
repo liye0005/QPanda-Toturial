@@ -16,7 +16,7 @@ QPanda 2提供了QASM文件转换工具接口 ``convert_qasm_to_qprog(std::strin
 >>>>>>>
 ----
 
-接下来通过简单的接口调用演示了OriginIR转化量子程序的过程
+接下来通过简单的接口调用演示了QASM转化量子程序的过程
 
     .. code-block:: c
     
