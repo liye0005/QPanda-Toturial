@@ -15,7 +15,6 @@ Utilities
 	class_QPanda_DecomposeMultipleControlQGate.rst
 	class_QPanda_DecomposeUnitarySingleQGateIntoMetadataSingleQGate.rst
 	class_DeleteUnitQnode.rst
-	class_QPanda_Variational_Double.rst
 	class_QPanda_DoubleGateTypeValidator.rst
 	class_QPanda_DrawQProg.rst
 	class_QPanda_Exp.rst
@@ -26,7 +25,6 @@ Utilities
 	class_QPanda_MergeSingleGate.rst
 	class_QPanda_MetadataValidity.rst
 	class_QPanda_NodeInfo.rst
-	class_QPanda_Variational_Optimizer.rst
 	class_QPanda_OriginIRVisitor.rst
 	class_QPanda_QASMToQProg.rst
 	class_QPanda_QCircuitParam.rst
@@ -68,8 +66,6 @@ Utilities
 	class_QPanda_TraverseByNodeIter.rst
 	class_WriteLock.rst
 	class_QPanda_XmlConfigParam.rst
-	class_QPanda_complex_var.rst
-	class_QPanda_Variational_expression.rst
 	class_QPanda_init_fail.rst
 	class_QPanda_qalloc_fail.rst
 	class_QPanda_qcircuit_construction_fail.rst
@@ -100,7 +96,6 @@ QPanda2 base Utilities classes and interface. :ref:`More...<details-group___util
 	class :ref:`QPanda::DecomposeMultipleControlQGate<doxid-class_q_panda_1_1_decompose_multiple_control_q_gate>`;
 	class :ref:`QPanda::DecomposeUnitarySingleQGateIntoMetadataSingleQGate<doxid-class_q_panda_1_1_decompose_unitary_single_q_gate_into_metadata_single_q_gate>`;
 	class :ref:`DeleteUnitQnode<doxid-class_delete_unit_qnode>`;
-	class :ref:`QPanda::Variational::Double<doxid-class_q_panda_1_1_variational_1_1_double>`;
 	class :ref:`QPanda::DoubleGateTypeValidator<doxid-class_q_panda_1_1_double_gate_type_validator>`;
 	class :ref:`QPanda::DrawQProg<doxid-class_q_panda_1_1_draw_q_prog>`;
 	class :ref:`QPanda::Exp<doxid-class_q_panda_1_1_exp>`;
@@ -111,7 +106,6 @@ QPanda2 base Utilities classes and interface. :ref:`More...<details-group___util
 	class :ref:`QPanda::MergeSingleGate<doxid-class_q_panda_1_1_merge_single_gate>`;
 	class :ref:`QPanda::MetadataValidity<doxid-class_q_panda_1_1_metadata_validity>`;
 	class :ref:`QPanda::NodeInfo<doxid-class_q_panda_1_1_node_info>`;
-	class :ref:`QPanda::Variational::Optimizer<doxid-class_q_panda_1_1_variational_1_1_optimizer>`;
 	class :ref:`QPanda::OriginIRVisitor<doxid-class_q_panda_1_1_origin_i_r_visitor>`;
 	class :ref:`QPanda::QASMToQProg<doxid-class_q_panda_1_1_q_a_s_m_to_q_prog>`;
 	class :ref:`QPanda::QCircuitParam<doxid-class_q_panda_1_1_q_circuit_param>`;
@@ -156,8 +150,6 @@ QPanda2 base Utilities classes and interface. :ref:`More...<details-group___util
 	class :ref:`QPanda::TraverseByNodeIter<doxid-class_q_panda_1_1_traverse_by_node_iter>`;
 	class :ref:`WriteLock<doxid-class_write_lock>`;
 	class :ref:`QPanda::XmlConfigParam<doxid-class_q_panda_1_1_xml_config_param>`;
-	class :ref:`QPanda::complex_var<doxid-class_q_panda_1_1complex__var>`;
-	class :ref:`QPanda::Variational::expression<doxid-class_q_panda_1_1_variational_1_1expression>`;
 	class :ref:`QPanda::init_fail<doxid-class_q_panda_1_1init__fail>`;
 	class :ref:`QPanda::qalloc_fail<doxid-class_q_panda_1_1qalloc__fail>`;
 	class :ref:`QPanda::qcircuit_construction_fail<doxid-class_q_panda_1_1qcircuit__construction__fail>`;
@@ -2400,9 +2392,9 @@ output matrix information to consol
 	:widths: 20 80
 
 	*
-		- the
+		- mat
 
-		- target matrix
+		- the target matrix
 
 
 
@@ -2717,9 +2709,9 @@ Unsigned integer to binary string.
 	:widths: 20 80
 
 	*
-		- const
+		- UnsignedIntegralType&
 
-		- UnsignedIntegralType & number
+		- number
 
 	*
 		- int
@@ -2751,9 +2743,9 @@ Unsigned integer to binary string.
 	:widths: 20 80
 
 	*
-		- const
+		- UnsignedIntegralType&
 
-		- UnsignedIntegralType & number
+		- number
 
 
 
@@ -2785,14 +2777,14 @@ Get quantum state dec index in pmeasure.
 	:widths: 20 80
 
 	*
-		- const
+		- UnsignedIntegralType&
 
-		- UnsignedIntegralType & num1
+		- num1
 
 	*
-		- const
+		- UnsignedIntegralType&
 
-		- UnsignedIntegralType & num2
+		- num2
 
 	*
 		- std::vector<size_t>

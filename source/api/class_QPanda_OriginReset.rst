@@ -10,7 +10,7 @@ class QPanda::OriginReset
 Overview
 ~~~~~~~~
 
-Implementation class of Quantum Reset. :ref:`More...<details-class_q_panda_1_1_origin_reset>`
+Implementation class of :ref:`QReset <doxid-class_q_panda_1_1_q_reset>`. :ref:`More...<details-class_q_panda_1_1_origin_reset>`
 
 
 .. ref-code-block:: cpp
@@ -50,7 +50,7 @@ Inherited Members
 Detailed Documentation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Implementation class of Quantum Reset.
+Implementation class of :ref:`QReset <doxid-class_q_panda_1_1_q_reset>`.
 
 Methods
 -------

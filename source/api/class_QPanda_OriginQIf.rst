@@ -10,7 +10,7 @@ class QPanda::OriginQIf
 Overview
 ~~~~~~~~
 
-Implementation class of Qrigin quantum if program. :ref:`More...<details-class_q_panda_1_1_origin_q_if>`
+Implementation class of :ref:`QIfProg <doxid-class_q_panda_1_1_q_if_prog>` :ref:`More...<details-class_q_panda_1_1_origin_q_if>`
 
 
 .. ref-code-block:: cpp
@@ -67,7 +67,7 @@ Inherited Members
 Detailed Documentation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Implementation class of Qrigin quantum if program.
+Implementation class of :ref:`QIfProg <doxid-class_q_panda_1_1_q_if_prog>`
 
 Methods
 -------

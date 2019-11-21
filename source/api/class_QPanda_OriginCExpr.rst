@@ -12,7 +12,7 @@ class QPanda::OriginCExpr
 Overview
 ~~~~~~~~
 
-Implementation class of Qrigin classical expression. :ref:`More...<details-class_q_panda_1_1_origin_c_expr>`
+Implementation class of :ref:`CExpr <doxid-class_q_panda_1_1_c_expr>`. :ref:`More...<details-class_q_panda_1_1_origin_c_expr>`
 
 
 .. ref-code-block:: cpp
@@ -88,7 +88,7 @@ Inherited Members
 Detailed Documentation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Implementation class of Qrigin classical expression.
+Implementation class of :ref:`CExpr <doxid-class_q_panda_1_1_c_expr>`.
 
 Fields
 ------

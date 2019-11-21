@@ -7,7 +7,6 @@ Core
 .. toctree::
 	:hidden:
 
-	group_Module.rst
 	group_QuantumCircuit.rst
 	group_QuantumMachine.rst
 	group_Utilities.rst
@@ -19,7 +18,6 @@ Overview
 
 QPanda2 Core Group. :ref:`More...<details-group___core>`
 
-|	:ref:`Module<doxid-group___module>`
 |	:ref:`QuantumCircuit<doxid-group___quantum_circuit>`
 |	:ref:`QuantumMachine<doxid-group___quantum_machine>`
 |	:ref:`Utilities<doxid-group___utilities>`
@@ -146,7 +144,7 @@ void
 
 Allocate a qubit.
 
-Brfore use this,call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a284fd8fcc0>`
+Call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a284fd8fcc0>` before you use this
 
 
 
@@ -164,7 +162,7 @@ void
 
 Allocate a qubit.
 
-Brfore use this,call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a284fd8fcc0>`
+Call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a284fd8fcc0>` before you use this
 
 
 
@@ -222,7 +220,7 @@ std::map<std::string, bool> result
 
 Allocate many qubits.
 
-Brfore use this,call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a284fd8fcc0>`
+Call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a284fd8fcc0>` before you use this
 
 
 
@@ -246,7 +244,7 @@ Brfore use this,call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a2
 
 Allocate a cbit.
 
-Brfore use this,call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a284fd8fcc0>`
+Call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a284fd8fcc0>` before you use this
 
 
 
@@ -264,7 +262,7 @@ Brfore use this,call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a2
 
 Allocate a cbit.
 
-Brfore use this,call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a284fd8fcc0>`
+Call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a284fd8fcc0>` before you use this
 
 
 
@@ -294,7 +292,7 @@ Brfore use this,call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a2
 
 Allocate many cbits.
 
-Brfore use this,call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a284fd8fcc0>`
+Call :ref:`init() <doxid-group___core_1gabc82d3c6d644397619115a284fd8fcc0>` before you use this
 
 
 

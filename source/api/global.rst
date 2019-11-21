@@ -540,8 +540,8 @@ Overview
 	#define :target:`IBMQ_BACKENDS_CONFIG<doxid-_i_b_m_q_8h_1a983c90909c7f80e717ea9ea1add1d150>`
 	#define :target:`IBMQ_BACKENDS_CONFIG_FILE<doxid-_i_b_m_q_8h_1ad611e840c8fc3ed51fd84402f436aaad>`
 	#define :target:`MACRO_GET_GATETYPE<doxid-_origin_i_r_to_q_prog_8h_1a9d1e3b75ddfa6d98b095382065226e85>`(name)
-	#define :target:`NoiseOp<doxid-_noise_c_p_u_impl_q_p_u_8h_1ad01e905fa484518e596588e907885a21>`
 	#define :target:`NoiseOp<doxid-_noise_model_8h_1ad01e905fa484518e596588e907885a21>`
+	#define :target:`NoiseOp<doxid-_noise_c_p_u_impl_q_p_u_8h_1ad01e905fa484518e596588e907885a21>`
 	#define :target:`PI<doxid-_c_p_u_impl_q_p_u_single_thread_8h_1a598a3330b3c21701223ee0ca14316eca>`
 	#define :target:`PI<doxid-_noise_c_p_u_impl_q_p_u_8h_1a598a3330b3c21701223ee0ca14316eca>`
 	#define :target:`PI<doxid-_c_p_u_impl_q_p_u_8h_1a598a3330b3c21701223ee0ca14316eca>`
@@ -555,9 +555,6 @@ Overview
 	#define :target:`QIF_REGISTER<doxid-_control_flow_8h_1a35a941193ad6c93151abfcef3528b3d9>`(className)
 	#define :target:`QPANDA_BEGIN<doxid-_q_panda_namespace_8h_1a375c0f5e0d6568b83528815afc55ff80>`
 	#define :target:`QPANDA_END<doxid-_q_panda_namespace_8h_1a9d806bab2e1c7ce92bcacc6b92a9bc56>`
-	#define :target:`QPANDA_MAJOR_VERSION<doxid-_q_panda_version_8h_1a48e2632dfb9270c54aae8fe071ad474e>`
-	#define :target:`QPANDA_MINOR_VERSION<doxid-_q_panda_version_8h_1a4098041d07b1dbc91cc2d4604d3ecd1c>`
-	#define :target:`QPANDA_PATCH_VERSION<doxid-_q_panda_version_8h_1af34d2ab9691f05843fe2b55e21c40845>`
 	#define :target:`QWHILE_REGISTER<doxid-_control_flow_8h_1a2e7197bd17e1381a1b7d3543c885c833>`(className)
 	#define :target:`Q_CONTROL_GATE_TIME_SEQUENCE<doxid-_x_m_l_config_param_8h_1a18c981104367d54320e94f028309eaae>`
 	#define :target:`Q_GATE_TIME_SEQUENCE_CONFIG<doxid-_x_m_l_config_param_8h_1ae73d10cbfe7c6a9b3fababc0e5fbef6a>`
@@ -601,9 +598,9 @@ Overview
 	#define :target:`SINGLETON_IMPLEMENT_EAGER<doxid-macro_8h_1add8c8d20b359e4be7a7451fa1052db63>`(Type)
 	#define :target:`SINGLETON_IMPLEMENT_LAZY<doxid-macro_8h_1ad5ff7948e947124a9de03a299399cffd>`(Type)
 	#define :target:`SINGLE_ANGLE_GATE<doxid-_c_p_u_impl_q_p_u_8h_1a3ba9b536f4f4be4ddb39870acb88f43a>`(NAME)
-	#define :target:`SQ2<doxid-_noise_c_p_u_impl_q_p_u_8h_1a0b19f406e0cc4cbaf7a935f155567869>`
-	#define :target:`SQ2<doxid-_c_p_u_impl_q_p_u_single_thread_8h_1a0b19f406e0cc4cbaf7a935f155567869>`
 	#define :target:`SQ2<doxid-_c_p_u_impl_q_p_u_8h_1a0b19f406e0cc4cbaf7a935f155567869>`
+	#define :target:`SQ2<doxid-_c_p_u_impl_q_p_u_single_thread_8h_1a0b19f406e0cc4cbaf7a935f155567869>`
+	#define :target:`SQ2<doxid-_noise_c_p_u_impl_q_p_u_8h_1a0b19f406e0cc4cbaf7a935f155567869>`
 	#define :target:`SingleGateMatrixSize<doxid-_transform_decomposition_8h_1a5cc35d85fd0872be5f41ffd4c971f52c>`
 	#define :target:`USING_QPANDA<doxid-_q_panda_namespace_8h_1af7466c9c1ed8b95983912dd5449b75f4>`
 	#define :target:`ZeroJudgement<doxid-_transform_decomposition_8h_1ae5cd83615b00885b469014317591e8d8>`

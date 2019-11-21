@@ -18,7 +18,6 @@
 |		:ref:`Optimizer<doxid-group___optimizer>`
 |		:ref:`Utils<doxid-group___utils>`
 |	:ref:`Core<doxid-group___core>`
-|		:ref:`Module<doxid-group___module>`
 |		:ref:`QuantumCircuit<doxid-group___quantum_circuit>`
 |		:ref:`QuantumMachine<doxid-group___quantum_machine>`
 |		:ref:`Utilities<doxid-group___utilities>`

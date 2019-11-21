@@ -10,7 +10,7 @@ class QPanda::OriginQWhile
 Overview
 ~~~~~~~~
 
-Implementation class of Qrigin quantum while program. :ref:`More...<details-class_q_panda_1_1_origin_q_while>`
+Implementation class of :ref:`QWhileProg <doxid-class_q_panda_1_1_q_while_prog>`. :ref:`More...<details-class_q_panda_1_1_origin_q_while>`
 
 
 .. ref-code-block:: cpp
@@ -61,7 +61,7 @@ Inherited Members
 Detailed Documentation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Implementation class of Qrigin quantum while program.
+Implementation class of :ref:`QWhileProg <doxid-class_q_panda_1_1_q_while_prog>`.
 
 Methods
 -------

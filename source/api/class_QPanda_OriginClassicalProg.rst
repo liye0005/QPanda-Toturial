@@ -54,7 +54,7 @@ Detailed Documentation
 
 Origin classical program class.
 
-Implementation class of :ref:`AbstractClassicalProg <doxid-class_q_panda_1_1_abstract_classical_prog>` and :ref:`QNode <doxid-class_q_panda_1_1_q_node>` This class type can hold classical expr and insert into QNodeMap
+Implementation class of :ref:`ClassicalProg <doxid-class_q_panda_1_1_classical_prog>` This class type can hold classical expr and insert into QNodeMap
 
 Construction
 ------------

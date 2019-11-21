@@ -471,7 +471,7 @@ Construct a new quantum U1 gate.
 
 	:ref:`QGate<doxid-class_q_panda_1_1_q_gate>` QPanda::U2(:ref:`Qubit<doxid-class_q_panda_1_1_qubit>`* qubit, double phi, double lambda)
 
-Construct a new quantum U1 gate.
+Construct a new quantum U2 gate.
 
 
 
@@ -509,7 +509,7 @@ Construct a new quantum U1 gate.
 
 	:ref:`QGate<doxid-class_q_panda_1_1_q_gate>` QPanda::U3(:ref:`Qubit<doxid-class_q_panda_1_1_qubit>`* qubit, double theta, double phi, double lambda)
 
-Construct a new quantum U1 gate.
+Construct a new quantum U3 gate.
 
 
 

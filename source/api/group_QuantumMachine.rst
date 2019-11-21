@@ -166,18 +166,21 @@ execute qprog
 	:widths: 20 80
 
 	*
-		- prog
+		- :ref:`QProg <doxid-class_q_panda_1_1_q_prog>`
 
-		- quantum program,
+		- quantum program
 
 	*
-		- const
+		- QPUImpl\*
 
-		- std::vector<std::vector<std::string>>& support gates
+		- 
+
+	*
+		- TraversalConfig&
+
+		- traversal configuration
 
 
 
 .. rubric:: Returns:
-
-size_t Unsupported :ref:`QGate <doxid-class_q_panda_1_1_q_gate>` number
 

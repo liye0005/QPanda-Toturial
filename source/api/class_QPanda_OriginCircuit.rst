@@ -10,7 +10,7 @@ class QPanda::OriginCircuit
 Overview
 ~~~~~~~~
 
-Implementation class of Qrigin quantum circuit program. :ref:`More...<details-class_q_panda_1_1_origin_circuit>`
+Implementation class of :ref:`QCircuit <doxid-class_q_panda_1_1_q_circuit>`. :ref:`More...<details-class_q_panda_1_1_origin_circuit>`
 
 
 .. ref-code-block:: cpp
@@ -31,17 +31,12 @@ Implementation class of Qrigin quantum circuit program. :ref:`More...<details-cl
 		virtual :ref:`NodeType<doxid-_q_global_variable_8h_1acac9cbaeea226ed297804c012dc12b16>` :ref:`getNodeType<doxid-class_q_panda_1_1_origin_circuit_1ab1a3d0a35640d9e78736ff4ff5140be8>`() const;
 		virtual bool :ref:`isDagger<doxid-class_q_panda_1_1_origin_circuit_1a76c8eea1a291bffbfa2c168e31cfe880>`() const;
 		virtual bool :ref:`getControlVector<doxid-class_q_panda_1_1_origin_circuit_1af49cd90d7105b7477ed8a35227af20b2>`(:ref:`QVec<doxid-class_q_panda_1_1_q_vec>`&);
-		virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` :target:`getFirstNodeIter<doxid-class_q_panda_1_1_origin_circuit_1a2cdc2ed7434e40aa8423dda374bdf202>`();
-		virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` :target:`getLastNodeIter<doxid-class_q_panda_1_1_origin_circuit_1abe8561fc4a56d2bd288f7ef34272dcd3>`();
-		virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` :target:`getEndNodeIter<doxid-class_q_panda_1_1_origin_circuit_1a635c3ddf31519b53956ba549a6c7097e>`();
-		virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` :target:`getHeadNodeIter<doxid-class_q_panda_1_1_origin_circuit_1aa0411fe9a8b8afb35ef042b57437d895>`();
-	
-		virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` :target:`insertQNode<doxid-class_q_panda_1_1_origin_circuit_1a935809b0630e6f52e9c4b26c15630b2d>`(
-			:ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>`&,
-			std::shared_ptr<:ref:`QNode<doxid-class_q_panda_1_1_q_node>`>
-			);
-	
-		virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` :target:`deleteQNode<doxid-class_q_panda_1_1_origin_circuit_1a2d78dc21b81592daa1a51ade2c0cc6b0>`(:ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>`&);
+		virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` :ref:`getFirstNodeIter<doxid-class_q_panda_1_1_origin_circuit_1a2cdc2ed7434e40aa8423dda374bdf202>`();
+		virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` :ref:`getLastNodeIter<doxid-class_q_panda_1_1_origin_circuit_1abe8561fc4a56d2bd288f7ef34272dcd3>`();
+		virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` :ref:`getEndNodeIter<doxid-class_q_panda_1_1_origin_circuit_1a635c3ddf31519b53956ba549a6c7097e>`();
+		virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` :ref:`getHeadNodeIter<doxid-class_q_panda_1_1_origin_circuit_1aa0411fe9a8b8afb35ef042b57437d895>`();
+		virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` :ref:`insertQNode<doxid-class_q_panda_1_1_origin_circuit_1a935809b0630e6f52e9c4b26c15630b2d>`(:ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>`&, std::shared_ptr<:ref:`QNode<doxid-class_q_panda_1_1_q_node>`>);
+		virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` :ref:`deleteQNode<doxid-class_q_panda_1_1_origin_circuit_1a2d78dc21b81592daa1a51ade2c0cc6b0>`(:ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>`&);
 		virtual void :ref:`clearControl<doxid-class_q_panda_1_1_origin_circuit_1ae11603555437c0f54cf62113cbb9b5b6>`();
 	};
 
@@ -73,7 +68,7 @@ Inherited Members
 Detailed Documentation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Implementation class of Qrigin quantum circuit program.
+Implementation class of :ref:`QCircuit <doxid-class_q_panda_1_1_q_circuit>`.
 
 Methods
 -------
@@ -86,7 +81,7 @@ Methods
 
 	virtual void pushBackNode(std::shared_ptr<:ref:`QNode<doxid-class_q_panda_1_1_q_node>`>)
 
-Insert new Node at the end of current quantum circuit node.
+Insert a new Node at the end of current quantum circuit node.
 
 
 
@@ -233,6 +228,131 @@ bool
 .. rubric:: See also:
 
 :ref:`QVec <doxid-class_q_panda_1_1_q_vec>`
+
+.. index:: pair: function; getFirstNodeIter
+.. _doxid-class_q_panda_1_1_origin_circuit_1a2cdc2ed7434e40aa8423dda374bdf202:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` getFirstNodeIter()
+
+Get the first :ref:`NodeIter <doxid-class_q_panda_1_1_node_iter>`.
+
+
+
+.. rubric:: Returns:
+
+:ref:`NodeIter <doxid-class_q_panda_1_1_node_iter>`
+
+.. index:: pair: function; getLastNodeIter
+.. _doxid-class_q_panda_1_1_origin_circuit_1abe8561fc4a56d2bd288f7ef34272dcd3:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` getLastNodeIter()
+
+Get the last :ref:`NodeIter <doxid-class_q_panda_1_1_node_iter>`.
+
+
+
+.. rubric:: Returns:
+
+:ref:`NodeIter <doxid-class_q_panda_1_1_node_iter>`
+
+.. index:: pair: function; getEndNodeIter
+.. _doxid-class_q_panda_1_1_origin_circuit_1a635c3ddf31519b53956ba549a6c7097e:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` getEndNodeIter()
+
+Get the end :ref:`NodeIter <doxid-class_q_panda_1_1_node_iter>`.
+
+
+
+.. rubric:: Returns:
+
+:ref:`NodeIter <doxid-class_q_panda_1_1_node_iter>`
+
+.. index:: pair: function; getHeadNodeIter
+.. _doxid-class_q_panda_1_1_origin_circuit_1aa0411fe9a8b8afb35ef042b57437d895:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` getHeadNodeIter()
+
+Get the head :ref:`NodeIter <doxid-class_q_panda_1_1_node_iter>`.
+
+
+
+.. rubric:: Returns:
+
+:ref:`NodeIter <doxid-class_q_panda_1_1_node_iter>`
+
+.. index:: pair: function; insertQNode
+.. _doxid-class_q_panda_1_1_origin_circuit_1a935809b0630e6f52e9c4b26c15630b2d:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` insertQNode(:ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>`&, std::shared_ptr<:ref:`QNode<doxid-class_q_panda_1_1_q_node>`>)
+
+Insert a new :ref:`QNode <doxid-class_q_panda_1_1_q_node>` at the location specified by :ref:`NodeIter <doxid-class_q_panda_1_1_node_iter>`
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- NodeIter&
+
+		- specified location
+
+	*
+		- std::shared_ptr<QNode>
+
+		- Inserted :ref:`QNode <doxid-class_q_panda_1_1_q_node>`
+
+
+
+.. rubric:: Returns:
+
+:ref:`NodeIter <doxid-class_q_panda_1_1_node_iter>`
+
+.. index:: pair: function; deleteQNode
+.. _doxid-class_q_panda_1_1_origin_circuit_1a2d78dc21b81592daa1a51ade2c0cc6b0:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	virtual :ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>` deleteQNode(:ref:`NodeIter<doxid-class_q_panda_1_1_node_iter>`&)
+
+Delete a :ref:`QNode <doxid-class_q_panda_1_1_q_node>` at the location specified by :ref:`NodeIter <doxid-class_q_panda_1_1_node_iter>`
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- NodeIter&
+
+		- specified location
+
+
+
+.. rubric:: Returns:
+
+:ref:`NodeIter <doxid-class_q_panda_1_1_node_iter>` Deleted :ref:`NodeIter <doxid-class_q_panda_1_1_node_iter>`
 
 .. index:: pair: function; clearControl
 .. _doxid-class_q_panda_1_1_origin_circuit_1ae11603555437c0f54cf62113cbb9b5b6:

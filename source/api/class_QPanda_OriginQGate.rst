@@ -10,7 +10,7 @@ class QPanda::OriginQGate
 Overview
 ~~~~~~~~
 
-Implementation class of Qrigin quantum gate. :ref:`More...<details-class_q_panda_1_1_origin_q_gate>`
+Implementation class of :ref:`QGate <doxid-class_q_panda_1_1_q_gate>`. :ref:`More...<details-class_q_panda_1_1_origin_q_gate>`
 
 
 .. ref-code-block:: cpp
@@ -73,7 +73,7 @@ Inherited Members
 Detailed Documentation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Implementation class of Qrigin quantum gate.
+Implementation class of :ref:`QGate <doxid-class_q_panda_1_1_q_gate>`.
 
 Methods
 -------

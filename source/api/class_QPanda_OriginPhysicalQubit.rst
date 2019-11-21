@@ -10,7 +10,7 @@ class QPanda::OriginPhysicalQubit
 Overview
 ~~~~~~~~
 
-Implementation class of Physical :ref:`Qubit <doxid-class_q_panda_1_1_qubit>`. :ref:`More...<details-class_q_panda_1_1_origin_physical_qubit>`
+Implementation class of :ref:`PhysicalQubit <doxid-class_q_panda_1_1_physical_qubit>`. :ref:`More...<details-class_q_panda_1_1_origin_physical_qubit>`
 
 
 .. ref-code-block:: cpp
@@ -48,7 +48,7 @@ Inherited Members
 Detailed Documentation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Implementation class of Physical :ref:`Qubit <doxid-class_q_panda_1_1_qubit>`.
+Implementation class of :ref:`PhysicalQubit <doxid-class_q_panda_1_1_physical_qubit>`.
 
 Methods
 -------
