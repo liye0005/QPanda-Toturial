@@ -37,7 +37,7 @@
 
     .. code-block:: c
           
-        size_t num = getQGateNumber(prog);
+        size_t num = getQGateNum(prog);
 
 .. note::  统计 ``QCircuit`` 、 ``QWhileProg`` 、``QIfProg`` 中量子逻辑门的个数和 ``QProg`` 类似。
 
@@ -46,7 +46,7 @@
 
     .. code-block:: c
     
-        #include "Core/QPanda.h"
+        #include "QPanda.h"
         USING_QPANDA
 
         int main(void)
@@ -62,7 +62,7 @@
                 << RX(qubits[0], 3.14)
                 << Measure(qubits[1], cbits[0]);
 
-            size_t num = getQGateNumber(prog);
+            size_t num = getQGateNum(prog);
             std::cout << "QGate number: " << num << std::endl;
             finalize();
 
@@ -74,5 +74,11 @@
     .. code-block:: c
 
         QGate number: 5
+
+.. warning:: 
+        新版本中接口名有所调整，旧接口 ``getQGateNumber()`` 将由 ``getQGateNum()`` 替代。\
+      
+        ``getQGateNumber()`` 将于下版本去除，请读者知悉。
+
 
     

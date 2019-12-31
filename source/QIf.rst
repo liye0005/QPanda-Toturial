@@ -26,6 +26,9 @@ C语言风格
         QIfProg qif = CreateIfProg(ClassicalCondition, QProg);
         QIfProg qif = CreateIfProg(ClassicalCondition, QProg, QProg);
 
+        QIfProg qif = createIfProg(ClassicalCondition, QProg);
+        QIfProg qif = createIfProg(ClassicalCondition, QProg, QProg);
+
 上述函数需要提供两种类型参数，即ClassicalCondition与QProg，
 当传入1个QProg参数时，QProg表示正确分支，当传入2个QProg参数时，第一个表示正确分支，第二个表示错误分支
 
@@ -36,16 +39,22 @@ C语言风格
 
     .. code-block:: c
 
-        QIfProg qif = CreateIfProg(ClassicalCondition, QProg, QProg);
-        QNOde* true_branch  = qif.getTrueBranch();
+        QIfProg qif = createIfProg(ClassicalCondition, QProg, QProg);
+        QNode* true_branch  = qif.getTrueBranch();
         QNode* false_branch = qif.getFalseBranch();
 
 也可以获取量子表达式
 
     .. code-block:: c
 
-        QIfProg qif = CreateIfProg(ClassicalCondition, QProg, QProg);
-        ClassicalCondition* expr = qif.getCExpr();
+        QIfProg qif = createIfProg(ClassicalCondition, QProg, QProg);
+        ClassicalCondition cc = qif.getCExpr();
+
+或
+    .. code-block:: c
+
+        QIfProg qif = createIfProg(ClassicalCondition, QProg, QProg);
+        ClassicalCondition cc = qif.getClassicalCondition();
 
 实例
 >>>>>>>>>
@@ -53,7 +62,7 @@ C语言风格
 
     .. code-block:: c
 
-        #include "Core/QPanda.h"
+        #include "QPanda.h"
         USING_QPANDA
 
         int main(void)
@@ -68,10 +77,10 @@ C语言风格
 
             QProg branch_true;
             QProg branch_false;
-            branch_true << (cvec[1]=cvec[1]+1) << H(qvec[cvec[0]]) << (cvec[0]=cvec[0]+1);
+            branch_true << H(qvec[cvec[0]]) << (cvec[0]=cvec[0]+1);
             branch_false << H(qvec[0]) << CNOT(qvec[0],qvec[1]) << CNOT(qvec[1],qvec[2]);
 
-            auto qif = CreateIfProg(cvec[1]>5, branch_true, branch_false);
+            auto qif = createIfProg(cvec[1]>5, branch_true, branch_false);
             prog << qif;
             auto result = probRunTupleList(prog, qvec);
 
@@ -97,4 +106,6 @@ C语言风格
         5, 0
         6, 0
 
+.. warning::
 
+    ``CreateIfProg``、 ``getCExpr`` 等在后续的版本中会被舍弃。

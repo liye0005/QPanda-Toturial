@@ -5,7 +5,7 @@
 
 量子测量是指通过外界对量子系统进行干扰来获取需要的信息，测量门使用的是蒙特卡洛方法的测量。在量子线路中用如下图标表示：
 
-.. image:: images/measure-01.png
+.. image:: images/QGate_measure.png
     :width: 65
 
 .. _api_introduction:

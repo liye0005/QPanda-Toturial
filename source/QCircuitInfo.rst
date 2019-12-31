@@ -10,9 +10,9 @@
 实例
 ---------------
 
-::
+ .. code-block:: c
 
-    #include "Core/QPanda.h"
+    #include "QPanda.h"
     USING_QPANDA
 
     int main(void)
@@ -20,7 +20,8 @@
         auto qvm = initQuantumMachine(QMachineType::CPU);
         auto qubits = qvm->allocateQubits(2);
         auto cbits = qvm->allocateCBits(2);
-
+        
+        QCircuit target_cir;
         target_cir<< H(qubits[1])
                   << CNOT(qubits[0],qubits[1])
                   << H(qubits[1]);

@@ -44,7 +44,7 @@ QASM(Quantum Assembly Language)是IBM公司提出的量子汇编语言，与 :re
 
 关于QASM更多详细信息的介绍、使用与体验请参考 `IBM Q Experience量子云平台`_
 
-QPanda2提供了QASM转换工具接口 ``std::string transformQProgToQASM(QProg &, QuantumMachine*)`` 该接口使用非常简单，具体可参考下方示例程序。
+QPanda2提供了QASM转换工具接口 ``std::string convert_qprog_to_qasm(QProg &, QuantumMachine*)`` 该接口使用非常简单，具体可参考下方示例程序。
 
 实例
 >>>>>>>>>>>>>>
@@ -54,15 +54,15 @@ QPanda2提供了QASM转换工具接口 ``std::string transformQProgToQASM(QProg 
 
     .. code-block:: c
 
-        #include "Core/QPanda.h"
+        #include "QPanda.h"
         USING_QPANDA
 
         int main(void)
         {
             auto qvm = initQuantumMachine();
 
-            auto prog = CreateEmptyQProg();
-            auto cir = CreateEmptyCircuit();
+            auto prog = createEmptyQProg();
+            auto cir = createEmptyCircuit();
 
             auto q = qvm->allocateQubits(6);
             auto c = qvm->allocateCBits(6);
@@ -82,7 +82,7 @@ QPanda2提供了QASM转换工具接口 ``std::string transformQProgToQASM(QProg 
                  << CR(q[1], q[2], PI / 2)
                  <<MeasureAll(q,c);
 
-            cout << transformQProgToQASM(prog,qvm);
+            std::cout << convert_qprog_to_qasm(prog,qvm);
 
             destroyQuantumMachine(qvm);
             return 0;
@@ -94,28 +94,39 @@ QPanda2提供了QASM转换工具接口 ``std::string transformQProgToQASM(QProg 
 
  - 接着用 ``allocateQubits()`` 和 ``allocateCBits()`` 初始化量子比特与经典寄存器数目
 
- - 然后调用 ``CreateEmptyQProg()`` 构建量子程序
+ - 然后调用 ``createEmptyQProg()`` 构建量子程序
 
- - 最后调用接口 ``transformQProgToQASM`` 输出QASM指令集并用 ``destroyQuantumMachine`` 释放系统资源
+ - 最后调用接口 ``convert_qprog_to_qasm`` 输出QASM指令集并用 ``destroyQuantumMachine`` 释放系统资源
 
 
 运行结果如下：
 
     .. code-block:: c
 
-        openqasm 2.0;
+        OPENQASM 2.0;
+        include "qelib1.inc";
         qreg q[6];
         creg c[6];
         h q[1];
         x q[2];
-        hdg q[1];
+        h q[1];
         rx(0.636620) q[1];
-        hdg q[2];
-        ydg q[2];
-        cr(1.570796) q[1],q[2];
+        h q[2];
+        y q[2];
+        rz(-0.785398) q[2];
+        cx q[1],q[2];
+        rz(-0.785398) q[2];
+        cx q[1],q[2];
+        rz(1.570796) q[2];
+        rx(1.570796) q[1];
+        ry(-0.785398) q[1];
+        rx(-1.570796) q[1];
         measure q[0] -> c[0];
         measure q[1] -> c[1];
         measure q[2] -> c[2];
         measure q[3] -> c[3];
         measure q[4] -> c[4];
         measure q[5] -> c[5];
+
+.. warning:: 
+        新增接口 ``convert_qprog_to_qasm()`` ，与老版本接口 ``transformQProgToQASM()`` 功能相同。

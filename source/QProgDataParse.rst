@@ -48,15 +48,14 @@
 
         QVec qubits_parse;
         std::vector<ClassicalCondition> cbits_parse;
-        binaryQProgDataParse(qvm, data, qubits_parse, cbits_parse, parseProg);
+        convert_binary_data_to_qprog(qvm, data, qubits_parse, cbits_parse, parseProg);
 
 实例
 ------------
 
     .. code-block:: c
     
-        #include "Core/QPanda.h"
-        #include "Core/Utilities/base64.hpp"
+        #include "QPanda.h"
 
         USING_QPANDA
 
@@ -69,7 +68,7 @@
 
             std::string data_str = "AAAAAAQAAAAEAAAABAAAAA4AAQAAAAAAJAACAAAAAQAkAAMAAQACACQABAACAAMA";
             auto data = Base64::decode(data_str.data(), data_str.size());
-            binaryQProgDataParse(qvm, data, qubits_parse, cbits_parse, parseProg);
+            convert_binary_data_to_qprog(qvm, data, qubits_parse, cbits_parse, parseProg);
 
             auto result_parse = probRunTupleList(parseProg, qubits_parse);
             for (auto &val : result_parse)
@@ -77,8 +76,7 @@
                 std::cout << val.first << ", " << val.second << std::endl;
             }
 
-            qvm->finalize();
-            delete qvm;
+            destroyQuantumMachine(qvm);
             return 0;
         }
 
@@ -104,3 +102,8 @@
         14, 0
 
 .. note:: 可以运行出正确的结果说明可以将序列化的量子程序正确的解析出来
+
+
+.. warning:: 
+        新增接口 ``convert_binary_data_to_qprog()`` ，与老版本接口 ``transformBinaryDataToQProg()`` 功能相同。
+
