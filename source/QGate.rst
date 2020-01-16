@@ -144,7 +144,7 @@ QPanda-2把所有的量子逻辑门封装为API向用户提供使用，并可获
 
      .. code-block:: c
           
-          QGate rx = RX(qubit，PI);
+          QGate rx = RX(qubit,PI);
 
 如上所示，RX门接收两个参数，第一个是目标量子比特，第二个偏转角度。您也可以通过相同的方式使用RY，RZ门。
 
@@ -152,7 +152,7 @@ QPanda-2把所有的量子逻辑门封装为API向用户提供使用，并可获
 
      .. code-block:: c
           
-          QGate cnot = CNOT(control_qubit，target_qubit);
+          QGate cnot = CNOT(control_qubit,target_qubit);
 
 CNOT门接收两个参数，第一个是控制比特，第二个是目标比特。
 
@@ -208,7 +208,7 @@ control的作用是复制当前的量子逻辑门，并给复制的量子逻辑�
     .. code-block:: c
     
         #include "QPanda.h"
-        using namespace QPanda；
+        using namespace QPanda;
 
         int main(void)
         {
