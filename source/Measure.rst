@@ -27,7 +27,7 @@
 
     .. code-block:: c
 
-        auto measure_all = MeasureAll(qubits， cbits);
+        auto measure_all = MeasureAll(qubits, cbits);
 
 其中qubits的类型是 ``QVec`` ， cbits的类型是 ``vector<ClassicalCondition>``。
 
